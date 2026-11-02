@@ -1,0 +1,28 @@
+name: Keep Render Backend Alive
+
+on:
+  schedule:
+    # Executes every 10 minutes to prevent Render free-tier instance from sleeping
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    name: Ping Render Health Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Send GET Request to Health Endpoint
+        run: |
+          echo "Pinging SitePulse Render Backend..."
+          HTTP_STATUS=$(curl -s -o /tmp/health_response.json -w "%{http_code}" --max-time 30 https://sitepulse-backend-898s.onrender.com/health)
+          echo "HTTP Status Code: $HTTP_STATUS"
+          echo "Response Body:"
+          cat /tmp/health_response.json
+          echo ""
+          if [ "$HTTP_STATUS" -ge 200 ] && [ "$HTTP_STATUS" -lt 400 ]; then
+            echo "✅ Render backend is alive and healthy."
+          else
+            echo "⚠️ Health check returned non-success status: $HTTP_STATUS"
+            exit 1
+          fi
