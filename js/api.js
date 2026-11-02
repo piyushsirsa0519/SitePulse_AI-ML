@@ -6,7 +6,13 @@
 const SitePulseAPI = (() => {
     function getBaseUrl() {
         const config = window.SITE_PULSE_CONFIG || {};
-        return config.API_BASE_URL || 'http://localhost:3000';
+        if (typeof config.API_BASE_URL === 'string' && config.API_BASE_URL.trim() !== '') {
+            return config.API_BASE_URL.trim().replace(/\/+$/, '');
+        }
+        if (typeof window !== 'undefined' && window.location && window.location.origin && window.location.origin !== 'null') {
+            return window.location.origin.replace(/\/+$/, '');
+        }
+        return 'http://localhost:3000';
     }
 
     async function request(endpoint, options = {}) {

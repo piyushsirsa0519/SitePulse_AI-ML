@@ -35,10 +35,17 @@ const SitePulseAuth = (() => {
         if (!supabaseClient) {
             const savedMockToken = localStorage.getItem('site_pulse_mock_token');
             if (savedMockToken) {
-                currentSession = {
-                    access_token: savedMockToken,
-                    user: { email: localStorage.getItem('site_pulse_mock_email') || 'executive@apexfitouts.com' }
-                };
+                // In production, reject legacy dev mock tokens ('mock-token-*') and require 'demo.*' tokens
+                if (!isLocalhost() && !savedMockToken.startsWith('demo.')) {
+                    localStorage.removeItem('site_pulse_mock_token');
+                    localStorage.removeItem('site_pulse_mock_email');
+                    currentSession = null;
+                } else {
+                    currentSession = {
+                        access_token: savedMockToken,
+                        user: { email: localStorage.getItem('site_pulse_mock_email') || 'executive@apexfitouts.com' }
+                    };
+                }
             }
         }
     }
@@ -60,7 +67,13 @@ const SitePulseAuth = (() => {
 
         // 2. Demo Auth Flow (When external Supabase is not configured)
         try {
-            const baseUrl = (window.SITE_PULSE_CONFIG && window.SITE_PULSE_CONFIG.API_BASE_URL) || '';
+            const config = window.SITE_PULSE_CONFIG || {};
+            let baseUrl = '';
+            if (typeof config.API_BASE_URL === 'string' && config.API_BASE_URL.trim() !== '') {
+                baseUrl = config.API_BASE_URL.trim().replace(/\/+$/, '');
+            } else if (typeof window !== 'undefined' && window.location && window.location.origin && window.location.origin !== 'null') {
+                baseUrl = window.location.origin.replace(/\/+$/, '');
+            }
             const res = await fetch(`${baseUrl}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
