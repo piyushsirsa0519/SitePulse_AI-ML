@@ -19,7 +19,7 @@ from pydantic import BaseModel, Field
 
 # Base Directory Resolution
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-MODEL_DIR = os.path.join(BASE_DIR, "model")
+MODEL_DIR = os.environ.get("MODEL_DIR", os.path.join(BASE_DIR, "model"))
 ANOMALY_DIR = os.path.join(MODEL_DIR, "anomaly")
 RISK_DIR = os.path.join(MODEL_DIR, "risk_classifier")
 
@@ -27,6 +27,15 @@ app = FastAPI(
     title="SitePulse ML Inference Service",
     description="Applied Machine Learning inference layer for Construction Progress Anomaly Detection and Delay Risk Prediction.",
     version="1.0.0-synthetic"
+)
+
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # -----------------------------------------------------------------------------

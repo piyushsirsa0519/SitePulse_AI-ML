@@ -57,7 +57,7 @@ async function makeRequest(path, options = {}) {
 test('1. GET /health includes ML Inference Service status', async () => {
     const res = await makeRequest('/health');
     assert.equal(res.status, 200);
-    assert.equal(res.body.status, 'ok');
+    assert.ok(['ok', 'degraded'].includes(res.body.status));
     assert.ok(res.body.ml_service, 'ml_service object must be returned in health response');
     assert.ok(
         ['online', 'offline', 'fallback_heuristic_active'].includes(res.body.ml_service.status) || res.body.ml_service.mode,

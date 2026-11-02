@@ -8,6 +8,7 @@ const meRouter = require('./routes/me');
 const portfolioRouter = require('./routes/portfolio');
 const projectsRouter = require('./routes/projects');
 const copilotRouter = require('./routes/copilot');
+const { router: authRouter } = require('./routes/auth');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -31,18 +32,25 @@ app.use((req, res, next) => {
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: false, limit: '1mb' }));
 
-// CORS Middleware
+// CORS Middleware (Same-Origin enabled by default; cross-origin guarded by CORS_ORIGIN)
 app.use((req, res, next) => {
     const origin = req.headers.origin;
     const isProduction = process.env.NODE_ENV === 'production';
     const allowedOrigin = process.env.CORS_ORIGIN;
 
     if (isProduction) {
-        if (allowedOrigin && origin === allowedOrigin) {
-            res.setHeader('Access-Control-Allow-Origin', origin);
-            res.setHeader('Vary', 'Origin');
+        const host = req.headers.host;
+        const isSameOrigin = !origin || (host && origin.includes(host));
+
+        if (isSameOrigin) {
+            if (origin) res.setHeader('Access-Control-Allow-Origin', origin);
+        } else if (allowedOrigin) {
+            const allowedList = allowedOrigin.split(',').map(o => o.trim());
+            if (allowedList.includes(origin) || (allowedList.includes('*') && origin)) {
+                res.setHeader('Access-Control-Allow-Origin', origin);
+                res.setHeader('Vary', 'Origin');
+            }
         }
-        // In production mode without CORS_ORIGIN or for unapproved origins, no Access-Control-Allow-Origin header is emitted
     } else {
         res.setHeader('Access-Control-Allow-Origin', origin || '*');
     }
@@ -56,25 +64,32 @@ app.use((req, res, next) => {
     next();
 });
 
-// Mount Root API Info Route
+// Serve Static Frontend Assets (Single-Origin Delivery)
+const path = require('path');
+const frontendPath = path.join(__dirname, '../../');
+app.use(express.static(frontendPath));
+
+// Mount Root Route: Serve Single-Page App (or API Info if JSON explicitly requested)
 app.get('/', (req, res) => {
-    res.status(200).json({
-        name: 'Site Pulse API',
-        status: 'ok'
-    });
+    const acceptsJson = req.headers.accept && req.headers.accept.includes('application/json');
+    const acceptsHtml = req.headers.accept && req.headers.accept.includes('text/html');
+    if (acceptsJson && !acceptsHtml) {
+        return res.status(200).json({
+            name: 'Site Pulse API',
+            status: 'ok'
+        });
+    }
+    res.sendFile(path.join(frontendPath, 'index.html'));
 });
 
 // Mount API Routes
+app.use('/auth', authRouter);
 app.use('/health', healthRouter);
 app.use('/me', meRouter);
 app.use('/portfolio', portfolioRouter);
 app.use('/projects', projectsRouter);
 app.use('/copilot', copilotRouter);
 
-// Serve Static Frontend Assets (Existing Website)
-const path = require('path');
-const frontendPath = path.join(__dirname, '../../');
-app.use(express.static(frontendPath));
 app.get('/app', (req, res) => {
     res.sendFile(path.join(frontendPath, 'index.html'));
 });

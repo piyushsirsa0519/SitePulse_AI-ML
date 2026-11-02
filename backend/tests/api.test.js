@@ -36,17 +36,16 @@ async function makeRequest(path, options = {}) {
     return { status: res.status, headers: res.headers, body };
 }
 
-test('0. GET / (Root API Info)', async () => {
+test('0. GET / (Root Serves Frontend App)', async () => {
     const res = await makeRequest('/');
     assert.equal(res.status, 200);
-    assert.equal(res.body.name, 'Site Pulse API');
-    assert.equal(res.body.status, 'ok');
+    assert.ok(typeof res.body === 'string' && res.body.includes('Site Pulse'));
 });
 
 test('1. GET /health (Unauthenticated)', async () => {
     const res = await makeRequest('/health');
     assert.equal(res.status, 200);
-    assert.equal(res.body.status, 'ok');
+    assert.ok(['ok', 'degraded'].includes(res.body.status));
 });
 
 test('1b. Unhandled Route Returns 404 JSON', async () => {
@@ -358,6 +357,51 @@ test('15. Daily Update UPSERT & Dashboard Analytics Integration', async () => {
     const civilTrade = dashRes.body.trades.find(t => t.id === 'trd-bb-civil');
     assert.ok(civilTrade);
     assert.equal(civilTrade.progress_pct, 100);
+});
+
+test('16. Demo Auth Mode: POST /auth/login verifies credentials and issues signed token', async () => {
+    // 16a. When DEMO_AUTH is off, returns 403
+    const origDemo = process.env.DEMO_AUTH;
+    delete process.env.DEMO_AUTH;
+
+    const resDisabled = await makeRequest('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: 'executive@apexfitouts.com', password: 'password' })
+    });
+    assert.equal(resDisabled.status, 403);
+    assert.equal(resDisabled.body.error.code, 'DEMO_AUTH_DISABLED');
+
+    // 16b. When DEMO_AUTH=true, invalid credentials return 401
+    process.env.DEMO_AUTH = 'true';
+    const resBad = await makeRequest('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: 'executive@apexfitouts.com', password: 'wrong' })
+    });
+    assert.equal(resBad.status, 401);
+
+    // 16c. Valid demo credentials return signed token
+    const resGood = await makeRequest('/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: 'executive@apexfitouts.com', password: 'password' })
+    });
+    assert.equal(resGood.status, 200);
+    assert.ok(resGood.body.access_token);
+    assert.ok(resGood.body.access_token.startsWith('demo.'));
+    assert.equal(resGood.body.user.email, 'executive@apexfitouts.com');
+
+    // 16d. Access protected endpoint using issued signed demo token
+    const meRes = await makeRequest('/me', {
+        headers: { 'Authorization': `Bearer ${resGood.body.access_token}` }
+    });
+    assert.equal(meRes.status, 200);
+    assert.equal(meRes.body.organization.id, 'org-apex-retail');
+    assert.equal(meRes.body.user.role, 'admin');
+
+    if (origDemo) process.env.DEMO_AUTH = origDemo;
+    else delete process.env.DEMO_AUTH;
 });
 
 

@@ -7,6 +7,7 @@
 
 const { createClient } = require('@supabase/supabase-js');
 const { getUserBySupabaseAuthId } = require('../services/userService');
+const { verifyDemoToken } = require('../routes/auth');
 
 let supabase = null;
 if (process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
@@ -42,6 +43,17 @@ async function authenticateToken(req, res, next) {
         // 1. In non-production mode ONLY, allow test mock tokens for automated unit testing
         if (!isProduction && TEST_TOKEN_AUTH_MAP[token]) {
             authId = TEST_TOKEN_AUTH_MAP[token];
+        } else if (process.env.DEMO_AUTH === 'true' && token.startsWith('demo.')) {
+            const demoPayload = verifyDemoToken(token);
+            if (!demoPayload) {
+                return res.status(401).json({
+                    error: {
+                        code: 'UNAUTHENTICATED',
+                        message: 'Invalid or expired demo authentication token'
+                    }
+                });
+            }
+            authId = demoPayload.sub;
         } else if (supabase) {
             // 2. Real Supabase Auth verification
             const { data, error } = await supabase.auth.getUser(token);

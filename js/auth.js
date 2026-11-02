@@ -31,8 +31,8 @@ const SitePulseAuth = (() => {
             }
         }
 
-        // Restore mock test session ONLY in local development
-        if (isLocalhost() && !supabaseClient) {
+        // Restore session when Supabase is unconfigured (demo / dev mode)
+        if (!supabaseClient) {
             const savedMockToken = localStorage.getItem('site_pulse_mock_token');
             if (savedMockToken) {
                 currentSession = {
@@ -58,7 +58,37 @@ const SitePulseAuth = (() => {
             return currentSession;
         }
 
-        // 2. Local Development Fallback (STRICTLY restricted to localhost / 127.0.0.1)
+        // 2. Demo Auth Flow (When external Supabase is not configured)
+        try {
+            const baseUrl = (window.SITE_PULSE_CONFIG && window.SITE_PULSE_CONFIG.API_BASE_URL) || '';
+            const res = await fetch(`${baseUrl}/auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: email.trim(), password })
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                currentSession = {
+                    access_token: data.access_token,
+                    user: data.user
+                };
+                localStorage.setItem('site_pulse_mock_token', data.access_token);
+                localStorage.setItem('site_pulse_mock_email', data.user.email);
+                return currentSession;
+            }
+
+            const errData = await res.json().catch(() => ({}));
+            if (errData && errData.error && errData.error.code === 'INVALID_CREDENTIALS') {
+                throw new Error(errData.error.message || 'Invalid email or password.');
+            }
+        } catch (err) {
+            if (err.message && !err.message.includes('fetch') && !err.message.includes('network') && !err.message.includes('Failed')) {
+                throw err;
+            }
+        }
+
+        // 3. Local Development Fallback (strictly localhost / 127.0.0.1)
         if (isLocalhost()) {
             const mockToken = DEV_MOCK_TOKENS[email.trim().toLowerCase()];
             if (mockToken) {
@@ -70,10 +100,10 @@ const SitePulseAuth = (() => {
                 localStorage.setItem('site_pulse_mock_email', email.trim());
                 return currentSession;
             }
-            throw new Error('Invalid email or password. (For local dev mode, try: executive@apexfitouts.com / password)');
+            throw new Error('Invalid email or password. (For demo mode, try: executive@apexfitouts.com / password)');
         }
 
-        // 3. In non-local / production environment without Supabase config, fail safely
+        // 4. In non-local environment without Supabase or Demo Auth
         throw new Error('Authentication service is unconfigured for this environment.');
     }
 

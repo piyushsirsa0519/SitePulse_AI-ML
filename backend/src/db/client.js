@@ -15,8 +15,9 @@ const isProduction = process.env.NODE_ENV === 'production';
 const isTest = process.env.NODE_ENV === 'test';
 const databaseUrl = isProduction ? process.env.DATABASE_URL : (isTest ? (process.env.TEST_DATABASE_URL || null) : process.env.DATABASE_URL);
 
-// Production Database Fail-Fast Check
-if (isProduction && !databaseUrl) {
+// Production Database Fail-Fast Check: required in production unless DEMO_AUTH=true
+const isDemoAuth = process.env.DEMO_AUTH === 'true';
+if (isProduction && !databaseUrl && !isDemoAuth) {
     throw new Error('DATABASE_URL environment variable is required in production mode');
 }
 

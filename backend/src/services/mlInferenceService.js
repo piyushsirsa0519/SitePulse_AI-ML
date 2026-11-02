@@ -12,8 +12,15 @@
 
 const db = require('../db/client');
 
-const ML_SERVICE_URL = process.env.ML_SERVICE_URL || 'http://127.0.0.1:8000';
-const PREDICTION_TIMEOUT_MS = parseInt(process.env.ML_PREDICTION_TIMEOUT_MS, 10) || 1500;
+function getMlServiceUrl() {
+    let raw = (process.env.ML_SERVICE_URL || 'http://127.0.0.1:8000').trim();
+    if (!raw.startsWith('http://') && !raw.startsWith('https://')) {
+        raw = `https://${raw}`;
+    }
+    return raw.replace(/\/+$/, '');
+}
+
+const PREDICTION_TIMEOUT_MS = parseInt(process.env.ML_PREDICTION_TIMEOUT_MS, 10) || 5000;
 
 const DISCLAIMER_TEXT = 'Trained on synthetic simulation data for research & prototyping. Not validated for production life-safety or contractual execution.';
 
@@ -25,7 +32,7 @@ async function checkHealth() {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), PREDICTION_TIMEOUT_MS);
 
-        const response = await fetch(`${ML_SERVICE_URL}/health`, {
+        const response = await fetch(`${getMlServiceUrl()}/health`, {
             signal: controller.signal
         });
         clearTimeout(timeoutId);
@@ -283,7 +290,7 @@ async function predictProjectRisk(fullProject, referenceDate = new Date()) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), PREDICTION_TIMEOUT_MS);
 
-        const response = await fetch(`${ML_SERVICE_URL}/predict/risk-score`, {
+        const response = await fetch(`${getMlServiceUrl()}/predict/risk-score`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(features),
@@ -351,7 +358,7 @@ async function detectProjectAnomalies(fullProject) {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), PREDICTION_TIMEOUT_MS);
 
-        const response = await fetch(`${ML_SERVICE_URL}/predict/anomaly/batch`, {
+        const response = await fetch(`${getMlServiceUrl()}/predict/anomaly/batch`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ records }),
