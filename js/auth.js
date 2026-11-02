@@ -68,12 +68,9 @@ const SitePulseAuth = (() => {
         // 2. Demo Auth Flow (When external Supabase is not configured)
         try {
             const config = window.SITE_PULSE_CONFIG || {};
-            let baseUrl = '';
-            if (typeof config.API_BASE_URL === 'string' && config.API_BASE_URL.trim() !== '') {
-                baseUrl = config.API_BASE_URL.trim().replace(/\/+$/, '');
-            } else if (typeof window !== 'undefined' && window.location && window.location.origin && window.location.origin !== 'null') {
-                baseUrl = window.location.origin.replace(/\/+$/, '');
-            }
+            const baseUrl = (typeof config.API_BASE_URL === 'string') 
+                ? config.API_BASE_URL.trim().replace(/\/+$/, '') 
+                : '';
             const res = await fetch(`${baseUrl}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

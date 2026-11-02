@@ -6,13 +6,12 @@
 const SitePulseAPI = (() => {
     function getBaseUrl() {
         const config = window.SITE_PULSE_CONFIG || {};
-        if (typeof config.API_BASE_URL === 'string' && config.API_BASE_URL.trim() !== '') {
+        if (typeof config.API_BASE_URL === 'string') {
             return config.API_BASE_URL.trim().replace(/\/+$/, '');
         }
-        if (typeof window !== 'undefined' && window.location && window.location.origin && window.location.origin !== 'null') {
-            return window.location.origin.replace(/\/+$/, '');
-        }
-        return 'http://localhost:3000';
+        const isLocal = typeof window !== 'undefined' && 
+            (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+        return isLocal ? 'http://localhost:3000' : '';
     }
 
     async function request(endpoint, options = {}) {

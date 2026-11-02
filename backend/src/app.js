@@ -64,10 +64,18 @@ app.use((req, res, next) => {
     next();
 });
 
-// Serve Static Frontend Assets (Single-Origin Delivery)
+// Serve Static Frontend Assets (Single-Origin Delivery with anti-stale cache headers)
 const path = require('path');
 const frontendPath = path.join(__dirname, '../../');
-app.use(express.static(frontendPath));
+app.use(express.static(frontendPath, {
+    maxAge: 0,
+    etag: true,
+    setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.html') || filePath.endsWith('.js') || filePath.endsWith('.css')) {
+            res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+        }
+    }
+}));
 
 // Mount Root Route: Serve Single-Page App (or API Info if JSON explicitly requested)
 app.get('/', (req, res) => {
