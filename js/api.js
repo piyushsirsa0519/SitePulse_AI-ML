@@ -95,10 +95,63 @@ const SitePulseAPI = (() => {
         });
     }
 
+    /**
+     * GET /projects/:id/risk-score — Phase 4 ML delay risk score & top factor attributions
+     */
+    async function getProjectRiskScore(projectId, date = '2026-10-01') {
+        const dateParam = date ? `?date=${encodeURIComponent(date)}` : '';
+        return request(`/projects/${projectId}/risk-score${dateParam}`);
+    }
+
+    /**
+     * GET /projects/:id/anomalies — Phase 4 ML trade-level anomaly detection
+     */
+    async function getProjectAnomalies(projectId) {
+        return request(`/projects/${projectId}/anomalies`);
+    }
+
+    /**
+     * GET /portfolio/contractors — Active contractors across organization
+     */
+    async function getContractors() {
+        return request('/portfolio/contractors');
+    }
+
+    /**
+     * GET /copilot/status — Active Copilot provider configuration and status
+     */
+    async function getCopilotStatus() {
+        return request('/copilot/status');
+    }
+
+    /**
+     * POST /copilot/chat — Conversational grounded decision support query
+     */
+    async function sendCopilotMessage(chatData) {
+        return request('/copilot/chat', {
+            method: 'POST',
+            body: JSON.stringify(chatData)
+        });
+    }
+
+    /**
+     * GET /copilot/suggested-prompts — Contextual decision-support prompts
+     */
+    async function getSuggestedPrompts(projectId = null) {
+        const query = projectId ? `?projectId=${encodeURIComponent(projectId)}` : '';
+        return request(`/copilot/suggested-prompts${query}`);
+    }
+
     return {
         getMe,
         getPortfolio,
         getProjectDashboard,
-        createDailyUpdate
+        createDailyUpdate,
+        getProjectRiskScore,
+        getProjectAnomalies,
+        getContractors,
+        getCopilotStatus,
+        sendCopilotMessage,
+        getSuggestedPrompts
     };
 })();

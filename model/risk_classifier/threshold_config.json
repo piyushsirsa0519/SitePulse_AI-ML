@@ -1,0 +1,22 @@
+{
+  "project_threshold": 0.57,
+  "trade_threshold": 0.5,
+  "risk_categories": {
+    "low": [
+      0.0,
+      0.35
+    ],
+    "moderate": [
+      0.35,
+      0.6
+    ],
+    "high": [
+      0.6,
+      0.8
+    ],
+    "critical": [
+      0.8,
+      1.0
+    ]
+  }
+}

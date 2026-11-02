@@ -19,10 +19,24 @@ pnpm-debug.log*
 # Testing & Coverage
 coverage/
 .nyc_output/
+.pytest_cache/
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+.venv/
+env/
+.env/
 
 # Build artifacts
 dist/
 build/
+docs/screenshots/
 
 # Operating System & IDE metadata
 .DS_Store

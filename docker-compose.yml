@@ -1,0 +1,101 @@
+# ==============================================================================
+# SitePulse — Unified Multi-Service Docker Compose Configuration
+# Orchestrates:
+#   1. PostgreSQL 15 Database (Relational Data & Migration Target)
+#   2. FastAPI ML Microservice (IsolationForest & HistGradientBoosting Models)
+#   3. Express Backend & Single-Page Application (API & Decision Support Suite)
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  # ----------------------------------------------------------------------------
+  # 1. PostgreSQL Database
+  # ----------------------------------------------------------------------------
+  postgres:
+    image: postgres:15-alpine
+    container_name: sitepulse-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-sitepulse}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./backend/db/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-sitepulse}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - sitepulse-network
+
+  # ----------------------------------------------------------------------------
+  # 2. Machine Learning Inference Microservice (FastAPI)
+  # ----------------------------------------------------------------------------
+  ml-service:
+    build:
+      context: .
+      dockerfile: backend/ml_service/Dockerfile
+    container_name: sitepulse-ml-service
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - sitepulse-network
+
+  # ----------------------------------------------------------------------------
+  # 3. Express Backend & Single-Page App
+  # ----------------------------------------------------------------------------
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sitepulse-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ml-service:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-sitepulse}
+      ML_SERVICE_URL: http://ml-service:8000
+      ML_PREDICTION_TIMEOUT_MS: 1500
+      LLM_PROVIDER: ${LLM_PROVIDER:-mock}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-gpt-4o-mini}
+      SUPABASE_URL: ${SUPABASE_URL:-https://your-project.supabase.co}
+      SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY:-your-supabase-anon-key}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:3000}
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+    networks:
+      - sitepulse-network
+
+# ------------------------------------------------------------------------------
+# Persistent Volumes & Isolated Network
+# ------------------------------------------------------------------------------
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  sitepulse-network:
+    driver: bridge

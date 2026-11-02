@@ -333,11 +333,43 @@ function getRecommendation(project, todayDate = new Date()) {
         let extraWorkers = Math.ceil(requiredWorkers - workersPresent);
         extraWorkers = Math.max(0, extraWorkers);
 
-        let actionText = '';
-        if (normReason.includes('waiting')) {
-            actionText = `Recommended action: Add ${extraWorkers} workers to ${tradeName} once dependency is cleared.`;
+        const staffingDeficit = Math.max(0, workersRequired - workersPresent);
+
+        const dailyRate = actual / daysElapsed;
+        const remainingDays = remainingProgress / Math.max(0.0001, dailyRate);
+        const projectedDate = new Date(today.getTime() + (remainingDays * oneDay));
+        const delayDays = Math.round((projectedDate - deadline) / oneDay);
+
+        let deadlinePrefix = '';
+        let deadlineSupporting = '';
+
+        if (delayDays < 0) {
+            const bufferDays = Math.abs(delayDays);
+            deadlinePrefix = `Contractual deadline projected to remain protected (${bufferDays}d buffer).`;
+            deadlineSupporting = `Current ${workersPresent}-worker crew projects completion ${bufferDays} days ahead of deadline (+${bufferDays}d buffer)`;
+        } else if (delayDays === 0) {
+            deadlinePrefix = `Completion projected on the contractual deadline (0d buffer).`;
+            deadlineSupporting = `Current ${workersPresent}-worker crew projects completion on the contractual deadline (0d buffer)`;
         } else {
-            actionText = `Recommended action: Add ${extraWorkers} workers to ${tradeName}.`;
+            deadlinePrefix = `Contractual deadline at risk (projected ${delayDays}d late).`;
+            deadlineSupporting = `Current ${workersPresent}-worker crew projects completion ${delayDays} days late`;
+        }
+
+        const depClause = normReason.includes('waiting') ? ' once dependency is cleared' : '';
+
+        let actionText = '';
+        let supportingText = '';
+
+        if (staffingDeficit > 0) {
+            actionText = `${deadlinePrefix} Evaluate deploying up to ${staffingDeficit} additional qualified workers to ${tradeName}${depClause} to recover planned milestone.`;
+            supportingText = `${deadlineSupporting}, but trade operates with a ${staffingDeficit}-worker deficit against scheduled staffing (${workersPresent}/${workersRequired}).`;
+        } else if (delayDays > 0) {
+            const neededWorkers = extraWorkers > 0 ? extraWorkers : 1;
+            actionText = `${deadlinePrefix} Evaluate deploying ${neededWorkers} additional qualified workers to ${tradeName}${depClause} to protect deadline.`;
+            supportingText = `${deadlineSupporting}. Trade operates at full planned staffing (${workersPresent}/${workersRequired}), but daily pace is insufficient.`;
+        } else {
+            actionText = `Maintain current crew of ${workersPresent} workers on ${tradeName}.`;
+            supportingText = `${deadlineSupporting}. Trade is operating at full planned staffing (${workersPresent}/${workersRequired}).`;
         }
 
         return {
@@ -345,8 +377,12 @@ function getRecommendation(project, todayDate = new Date()) {
             tradeName: tradeName,
             reason: reason,
             actionText: actionText,
-            manpowerText: `Current manpower: ${workersPresent} / ${workersRequired}`,
+            supportingText: supportingText,
+            manpowerText: `Current staffing: ${workersPresent} / ${workersRequired} workers (${staffingDeficit > 0 ? `${staffingDeficit} worker staffing deficit` : 'Fully staffed'})`,
             extraWorkers: extraWorkers,
+            staffingDeficit: staffingDeficit,
+            delayDays: delayDays,
+            deadlineBufferDays: delayDays < 0 ? Math.abs(delayDays) : 0,
             workersPresent: workersPresent,
             workersRequired: workersRequired,
             isManpower: true,

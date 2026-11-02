@@ -1,0 +1,261 @@
+id,organization_id,store_code,name,brand,city,location_address,format,square_footage,status,is_synthetic
+str-syn-0001,org-apex-retail,STR-NIC-DEL-001,Nicobar Living — Delhi Store #001,Nicobar Living,Delhi,"Unit 101, Sector 11, Delhi",High Street,3647.12,completed,True
+str-syn-0002,org-apex-retail,STR-CAF-HYD-002,Cafe Chai Point — Hyderabad Store #002,Cafe Chai Point,Hyderabad,"Unit 102, Sector 12, Hyderabad",Food Court,1580.91,completed,True
+str-syn-0003,org-apex-retail,STR-FAB-NOI-003,FabIndia Home — Noida Store #003,FabIndia Home,Noida,"Unit 103, Sector 13, Noida",Mall,2005.85,completed,True
+str-syn-0004,org-apex-retail,STR-FAB-HYD-004,FabIndia Home — Hyderabad Store #004,FabIndia Home,Hyderabad,"Unit 104, Sector 14, Hyderabad",Standalone Flagship,3945.69,completed,True
+str-syn-0005,org-apex-retail,STR-FAB-BEN-005,FabIndia Home — Bengaluru Store #005,FabIndia Home,Bengaluru,"Unit 105, Sector 15, Bengaluru",Mall,4369.72,completed,True
+str-syn-0006,org-apex-retail,STR-THI-MUM-006,Third Wave Coffee — Mumbai Store #006,Third Wave Coffee,Mumbai,"Unit 106, Sector 16, Mumbai",Food Court,3105.67,completed,True
+str-syn-0007,org-apex-retail,STR-BLU-CHE-007,Blue Tokai Coffee — Chennai Store #007,Blue Tokai Coffee,Chennai,"Unit 107, Sector 17, Chennai",High Street,1647.12,completed,True
+str-syn-0008,org-apex-retail,STR-BUR-HYD-008,Burger Singh — Hyderabad Store #008,Burger Singh,Hyderabad,"Unit 108, Sector 18, Hyderabad",Standalone Flagship,4349.69,completed,True
+str-syn-0009,org-apex-retail,STR-BAR-PUN-009,Barista Coffee — Pune Store #009,Barista Coffee,Pune,"Unit 109, Sector 19, Pune",Mall,3310.83,completed,True
+str-syn-0010,org-apex-retail,STR-CHU-NOI-010,Chumbak Lifestyle — Noida Store #010,Chumbak Lifestyle,Noida,"Unit 110, Sector 20, Noida",High Street,3123.98,completed,True
+str-syn-0011,org-apex-retail,STR-CHU-MUM-011,Chumbak Lifestyle — Mumbai Store #011,Chumbak Lifestyle,Mumbai,"Unit 111, Sector 21, Mumbai",High Street,3020.26,completed,True
+str-syn-0012,org-apex-retail,STR-CHU-PUN-012,Chumbak Lifestyle — Pune Store #012,Chumbak Lifestyle,Pune,"Unit 112, Sector 22, Pune",Food Court,4019.28,completed,True
+str-syn-0013,org-apex-retail,STR-BLU-DEL-013,Blue Tokai Coffee — Delhi Store #013,Blue Tokai Coffee,Delhi,"Unit 113, Sector 23, Delhi",High Street,4269.7,completed,True
+str-syn-0014,org-apex-retail,STR-CAF-BEN-014,Cafe Chai Point — Bengaluru Store #014,Cafe Chai Point,Bengaluru,"Unit 114, Sector 24, Bengaluru",Food Court,2416.28,completed,True
+str-syn-0015,org-apex-retail,STR-P.T-HYD-015,P.TAL Homeware — Hyderabad Store #015,P.TAL Homeware,Hyderabad,"Unit 115, Sector 25, Hyderabad",Standalone Flagship,2953.14,completed,True
+str-syn-0016,org-apex-retail,STR-BAR-GUR-016,Barista Coffee — Gurugram Store #016,Barista Coffee,Gurugram,"Unit 116, Sector 26, Gurugram",Mall,1529.89,completed,True
+str-syn-0017,org-apex-retail,STR-SUB-DEL-017,Subway Fresh — Delhi Store #017,Subway Fresh,Delhi,"Unit 117, Sector 27, Delhi",Standalone Flagship,1841.69,completed,True
+str-syn-0018,org-apex-retail,STR-BAR-NOI-018,Barista Coffee — Noida Store #018,Barista Coffee,Noida,"Unit 118, Sector 28, Noida",Food Court,3729.35,completed,True
+str-syn-0019,org-apex-retail,STR-BIR-DEL-019,Biryani Blues — Delhi Store #019,Biryani Blues,Delhi,"Unit 119, Sector 29, Delhi",Mall,4177.97,completed,True
+str-syn-0020,org-apex-retail,STR-CAF-HYD-020,Cafe Chai Point — Hyderabad Store #020,Cafe Chai Point,Hyderabad,"Unit 120, Sector 30, Hyderabad",Food Court,4342.14,completed,True
+str-syn-0021,org-apex-retail,STR-BIR-PUN-021,Biryani Blues — Pune Store #021,Biryani Blues,Pune,"Unit 121, Sector 31, Pune",High Street,1443.31,completed,True
+str-syn-0022,org-apex-retail,STR-SUB-GUR-022,Subway Fresh — Gurugram Store #022,Subway Fresh,Gurugram,"Unit 122, Sector 32, Gurugram",Standalone Flagship,2610.41,completed,True
+str-syn-0023,org-apex-retail,STR-CHA-GUR-023,Chaayos Express — Gurugram Store #023,Chaayos Express,Gurugram,"Unit 123, Sector 33, Gurugram",Food Court,2219.34,completed,True
+str-syn-0024,org-apex-retail,STR-CHU-HYD-024,Chumbak Lifestyle — Hyderabad Store #024,Chumbak Lifestyle,Hyderabad,"Unit 124, Sector 34, Hyderabad",High Street,4360.34,completed,True
+str-syn-0025,org-apex-retail,STR-SUB-CHE-025,Subway Fresh — Chennai Store #025,Subway Fresh,Chennai,"Unit 125, Sector 35, Chennai",Mall,2469.27,completed,True
+str-syn-0026,org-apex-retail,STR-BUR-MUM-026,Burger Singh — Mumbai Store #026,Burger Singh,Mumbai,"Unit 126, Sector 36, Mumbai",High Street,3584.99,completed,True
+str-syn-0027,org-apex-retail,STR-BAR-GUR-027,Barista Coffee — Gurugram Store #027,Barista Coffee,Gurugram,"Unit 127, Sector 37, Gurugram",Mall,2903.67,completed,True
+str-syn-0028,org-apex-retail,STR-BIR-CHE-028,Biryani Blues — Chennai Store #028,Biryani Blues,Chennai,"Unit 128, Sector 38, Chennai",High Street,2091.99,completed,True
+str-syn-0029,org-apex-retail,STR-FAB-MUM-029,FabIndia Home — Mumbai Store #029,FabIndia Home,Mumbai,"Unit 129, Sector 39, Mumbai",High Street,4332.3,completed,True
+str-syn-0030,org-apex-retail,STR-P.T-GUR-030,P.TAL Homeware — Gurugram Store #030,P.TAL Homeware,Gurugram,"Unit 130, Sector 40, Gurugram",Standalone Flagship,1713.82,completed,True
+str-syn-0031,org-apex-retail,STR-BUR-GUR-031,Burger Singh — Gurugram Store #031,Burger Singh,Gurugram,"Unit 131, Sector 41, Gurugram",Food Court,2323.97,completed,True
+str-syn-0032,org-apex-retail,STR-THI-PUN-032,Third Wave Coffee — Pune Store #032,Third Wave Coffee,Pune,"Unit 132, Sector 42, Pune",Food Court,3936.46,completed,True
+str-syn-0033,org-apex-retail,STR-BUR-HYD-033,Burger Singh — Hyderabad Store #033,Burger Singh,Hyderabad,"Unit 133, Sector 43, Hyderabad",Standalone Flagship,3906.09,completed,True
+str-syn-0034,org-apex-retail,STR-SUB-NOI-034,Subway Fresh — Noida Store #034,Subway Fresh,Noida,"Unit 134, Sector 44, Noida",Mall,4454.48,completed,True
+str-syn-0035,org-apex-retail,STR-CHU-PUN-035,Chumbak Lifestyle — Pune Store #035,Chumbak Lifestyle,Pune,"Unit 135, Sector 45, Pune",High Street,2633.46,completed,True
+str-syn-0036,org-apex-retail,STR-BIR-GUR-036,Biryani Blues — Gurugram Store #036,Biryani Blues,Gurugram,"Unit 136, Sector 46, Gurugram",Standalone Flagship,2627.21,completed,True
+str-syn-0037,org-apex-retail,STR-FAB-BEN-037,FabIndia Home — Bengaluru Store #037,FabIndia Home,Bengaluru,"Unit 137, Sector 47, Bengaluru",Food Court,4233.78,completed,True
+str-syn-0038,org-apex-retail,STR-FAB-DEL-038,FabIndia Home — Delhi Store #038,FabIndia Home,Delhi,"Unit 138, Sector 48, Delhi",High Street,4487.84,completed,True
+str-syn-0039,org-apex-retail,STR-NIC-PUN-039,Nicobar Living — Pune Store #039,Nicobar Living,Pune,"Unit 139, Sector 49, Pune",Food Court,2571.26,completed,True
+str-syn-0040,org-apex-retail,STR-CAF-NOI-040,Cafe Chai Point — Noida Store #040,Cafe Chai Point,Noida,"Unit 140, Sector 10, Noida",Mall,3508.97,completed,True
+str-syn-0041,org-apex-retail,STR-CHU-GUR-041,Chumbak Lifestyle — Gurugram Store #041,Chumbak Lifestyle,Gurugram,"Unit 141, Sector 11, Gurugram",Food Court,3280.58,completed,True
+str-syn-0042,org-apex-retail,STR-BIR-NOI-042,Biryani Blues — Noida Store #042,Biryani Blues,Noida,"Unit 142, Sector 12, Noida",High Street,1922.27,completed,True
+str-syn-0043,org-apex-retail,STR-CAF-DEL-043,Cafe Chai Point — Delhi Store #043,Cafe Chai Point,Delhi,"Unit 143, Sector 13, Delhi",Mall,2512.8,completed,True
+str-syn-0044,org-apex-retail,STR-BUR-BEN-044,Burger Singh — Bengaluru Store #044,Burger Singh,Bengaluru,"Unit 144, Sector 14, Bengaluru",High Street,3890.55,completed,True
+str-syn-0045,org-apex-retail,STR-CHU-PUN-045,Chumbak Lifestyle — Pune Store #045,Chumbak Lifestyle,Pune,"Unit 145, Sector 15, Pune",Standalone Flagship,4059.11,completed,True
+str-syn-0046,org-apex-retail,STR-CAF-CHE-046,Cafe Chai Point — Chennai Store #046,Cafe Chai Point,Chennai,"Unit 146, Sector 16, Chennai",Food Court,1904.01,completed,True
+str-syn-0047,org-apex-retail,STR-BUR-GUR-047,Burger Singh — Gurugram Store #047,Burger Singh,Gurugram,"Unit 147, Sector 17, Gurugram",Mall,1823.85,completed,True
+str-syn-0048,org-apex-retail,STR-BUR-CHE-048,Burger Singh — Chennai Store #048,Burger Singh,Chennai,"Unit 148, Sector 18, Chennai",Food Court,2081.3,completed,True
+str-syn-0049,org-apex-retail,STR-THI-BEN-049,Third Wave Coffee — Bengaluru Store #049,Third Wave Coffee,Bengaluru,"Unit 149, Sector 19, Bengaluru",Standalone Flagship,2838.16,completed,True
+str-syn-0050,org-apex-retail,STR-FAB-GUR-050,FabIndia Home — Gurugram Store #050,FabIndia Home,Gurugram,"Unit 150, Sector 20, Gurugram",Food Court,2471.42,completed,True
+str-syn-0051,org-apex-retail,STR-P.T-BEN-051,P.TAL Homeware — Bengaluru Store #051,P.TAL Homeware,Bengaluru,"Unit 151, Sector 21, Bengaluru",Mall,3448.18,completed,True
+str-syn-0052,org-apex-retail,STR-CAF-GUR-052,Cafe Chai Point — Gurugram Store #052,Cafe Chai Point,Gurugram,"Unit 152, Sector 22, Gurugram",Mall,3408.62,completed,True
+str-syn-0053,org-apex-retail,STR-BAR-DEL-053,Barista Coffee — Delhi Store #053,Barista Coffee,Delhi,"Unit 153, Sector 23, Delhi",High Street,2819.3,completed,True
+str-syn-0054,org-apex-retail,STR-BAR-NOI-054,Barista Coffee — Noida Store #054,Barista Coffee,Noida,"Unit 154, Sector 24, Noida",Food Court,2787.7,completed,True
+str-syn-0055,org-apex-retail,STR-CHU-CHE-055,Chumbak Lifestyle — Chennai Store #055,Chumbak Lifestyle,Chennai,"Unit 155, Sector 25, Chennai",High Street,3631.26,completed,True
+str-syn-0056,org-apex-retail,STR-NIC-NOI-056,Nicobar Living — Noida Store #056,Nicobar Living,Noida,"Unit 156, Sector 26, Noida",Mall,3697.88,completed,True
+str-syn-0057,org-apex-retail,STR-BAR-HYD-057,Barista Coffee — Hyderabad Store #057,Barista Coffee,Hyderabad,"Unit 157, Sector 27, Hyderabad",Standalone Flagship,1595.99,completed,True
+str-syn-0058,org-apex-retail,STR-CHA-HYD-058,Chaayos Express — Hyderabad Store #058,Chaayos Express,Hyderabad,"Unit 158, Sector 28, Hyderabad",Food Court,4198.35,completed,True
+str-syn-0059,org-apex-retail,STR-CHA-BEN-059,Chaayos Express — Bengaluru Store #059,Chaayos Express,Bengaluru,"Unit 159, Sector 29, Bengaluru",High Street,2050.37,completed,True
+str-syn-0060,org-apex-retail,STR-SUB-DEL-060,Subway Fresh — Delhi Store #060,Subway Fresh,Delhi,"Unit 160, Sector 30, Delhi",Food Court,3124.51,completed,True
+str-syn-0061,org-apex-retail,STR-FAB-HYD-061,FabIndia Home — Hyderabad Store #061,FabIndia Home,Hyderabad,"Unit 161, Sector 31, Hyderabad",Mall,2803.69,completed,True
+str-syn-0062,org-apex-retail,STR-FAB-HYD-062,FabIndia Home — Hyderabad Store #062,FabIndia Home,Hyderabad,"Unit 162, Sector 32, Hyderabad",Food Court,1779.15,completed,True
+str-syn-0063,org-apex-retail,STR-FAB-HYD-063,FabIndia Home — Hyderabad Store #063,FabIndia Home,Hyderabad,"Unit 163, Sector 33, Hyderabad",Standalone Flagship,1946.99,completed,True
+str-syn-0064,org-apex-retail,STR-THI-BEN-064,Third Wave Coffee — Bengaluru Store #064,Third Wave Coffee,Bengaluru,"Unit 164, Sector 34, Bengaluru",Standalone Flagship,4093.14,completed,True
+str-syn-0065,org-apex-retail,STR-BIR-HYD-065,Biryani Blues — Hyderabad Store #065,Biryani Blues,Hyderabad,"Unit 165, Sector 35, Hyderabad",High Street,3002.14,completed,True
+str-syn-0066,org-apex-retail,STR-BUR-PUN-066,Burger Singh — Pune Store #066,Burger Singh,Pune,"Unit 166, Sector 36, Pune",Mall,1709.05,completed,True
+str-syn-0067,org-apex-retail,STR-CHU-MUM-067,Chumbak Lifestyle — Mumbai Store #067,Chumbak Lifestyle,Mumbai,"Unit 167, Sector 37, Mumbai",High Street,3190.26,completed,True
+str-syn-0068,org-apex-retail,STR-FAB-CHE-068,FabIndia Home — Chennai Store #068,FabIndia Home,Chennai,"Unit 168, Sector 38, Chennai",Standalone Flagship,4124.27,completed,True
+str-syn-0069,org-apex-retail,STR-CHA-DEL-069,Chaayos Express — Delhi Store #069,Chaayos Express,Delhi,"Unit 169, Sector 39, Delhi",Standalone Flagship,2967.31,completed,True
+str-syn-0070,org-apex-retail,STR-BUR-DEL-070,Burger Singh — Delhi Store #070,Burger Singh,Delhi,"Unit 170, Sector 40, Delhi",Standalone Flagship,2528.09,completed,True
+str-syn-0071,org-apex-retail,STR-FAB-DEL-071,FabIndia Home — Delhi Store #071,FabIndia Home,Delhi,"Unit 171, Sector 41, Delhi",Mall,2510.45,completed,True
+str-syn-0072,org-apex-retail,STR-SUB-PUN-072,Subway Fresh — Pune Store #072,Subway Fresh,Pune,"Unit 172, Sector 42, Pune",Food Court,2409.69,completed,True
+str-syn-0073,org-apex-retail,STR-CHA-PUN-073,Chaayos Express — Pune Store #073,Chaayos Express,Pune,"Unit 173, Sector 43, Pune",High Street,2352.68,completed,True
+str-syn-0074,org-apex-retail,STR-BLU-NOI-074,Blue Tokai Coffee — Noida Store #074,Blue Tokai Coffee,Noida,"Unit 174, Sector 44, Noida",High Street,2464.67,completed,True
+str-syn-0075,org-apex-retail,STR-THI-BEN-075,Third Wave Coffee — Bengaluru Store #075,Third Wave Coffee,Bengaluru,"Unit 175, Sector 45, Bengaluru",High Street,4311.46,completed,True
+str-syn-0076,org-apex-retail,STR-BUR-BEN-076,Burger Singh — Bengaluru Store #076,Burger Singh,Bengaluru,"Unit 176, Sector 46, Bengaluru",Mall,1965.89,completed,True
+str-syn-0077,org-apex-retail,STR-FAB-NOI-077,FabIndia Home — Noida Store #077,FabIndia Home,Noida,"Unit 177, Sector 47, Noida",Mall,2134.7,completed,True
+str-syn-0078,org-apex-retail,STR-CHU-MUM-078,Chumbak Lifestyle — Mumbai Store #078,Chumbak Lifestyle,Mumbai,"Unit 178, Sector 48, Mumbai",Food Court,3325.15,completed,True
+str-syn-0079,org-apex-retail,STR-THI-DEL-079,Third Wave Coffee — Delhi Store #079,Third Wave Coffee,Delhi,"Unit 179, Sector 49, Delhi",Food Court,2650.06,completed,True
+str-syn-0080,org-apex-retail,STR-THI-GUR-080,Third Wave Coffee — Gurugram Store #080,Third Wave Coffee,Gurugram,"Unit 180, Sector 10, Gurugram",Standalone Flagship,1949.43,completed,True
+str-syn-0081,org-apex-retail,STR-CHA-DEL-081,Chaayos Express — Delhi Store #081,Chaayos Express,Delhi,"Unit 181, Sector 11, Delhi",High Street,2605.9,completed,True
+str-syn-0082,org-apex-retail,STR-P.T-GUR-082,P.TAL Homeware — Gurugram Store #082,P.TAL Homeware,Gurugram,"Unit 182, Sector 12, Gurugram",Food Court,4197.04,completed,True
+str-syn-0083,org-apex-retail,STR-BAR-PUN-083,Barista Coffee — Pune Store #083,Barista Coffee,Pune,"Unit 183, Sector 13, Pune",High Street,2492.74,completed,True
+str-syn-0084,org-apex-retail,STR-FAB-MUM-084,FabIndia Home — Mumbai Store #084,FabIndia Home,Mumbai,"Unit 184, Sector 14, Mumbai",High Street,4308.32,completed,True
+str-syn-0085,org-apex-retail,STR-BAR-DEL-085,Barista Coffee — Delhi Store #085,Barista Coffee,Delhi,"Unit 185, Sector 15, Delhi",Food Court,2353.59,completed,True
+str-syn-0086,org-apex-retail,STR-BAR-BEN-086,Barista Coffee — Bengaluru Store #086,Barista Coffee,Bengaluru,"Unit 186, Sector 16, Bengaluru",Mall,3754.24,completed,True
+str-syn-0087,org-apex-retail,STR-THI-DEL-087,Third Wave Coffee — Delhi Store #087,Third Wave Coffee,Delhi,"Unit 187, Sector 17, Delhi",Standalone Flagship,3658.31,completed,True
+str-syn-0088,org-apex-retail,STR-BUR-NOI-088,Burger Singh — Noida Store #088,Burger Singh,Noida,"Unit 188, Sector 18, Noida",Standalone Flagship,2744.35,completed,True
+str-syn-0089,org-apex-retail,STR-CHA-DEL-089,Chaayos Express — Delhi Store #089,Chaayos Express,Delhi,"Unit 189, Sector 19, Delhi",Mall,2680.46,completed,True
+str-syn-0090,org-apex-retail,STR-SUB-DEL-090,Subway Fresh — Delhi Store #090,Subway Fresh,Delhi,"Unit 190, Sector 20, Delhi",Mall,2401.88,completed,True
+str-syn-0091,org-apex-retail,STR-SUB-GUR-091,Subway Fresh — Gurugram Store #091,Subway Fresh,Gurugram,"Unit 191, Sector 21, Gurugram",High Street,1928.24,completed,True
+str-syn-0092,org-apex-retail,STR-FAB-PUN-092,FabIndia Home — Pune Store #092,FabIndia Home,Pune,"Unit 192, Sector 22, Pune",High Street,2941.14,completed,True
+str-syn-0093,org-apex-retail,STR-FAB-GUR-093,FabIndia Home — Gurugram Store #093,FabIndia Home,Gurugram,"Unit 193, Sector 23, Gurugram",High Street,1554.69,completed,True
+str-syn-0094,org-apex-retail,STR-BUR-DEL-094,Burger Singh — Delhi Store #094,Burger Singh,Delhi,"Unit 194, Sector 24, Delhi",Food Court,2383.29,completed,True
+str-syn-0095,org-apex-retail,STR-BIR-GUR-095,Biryani Blues — Gurugram Store #095,Biryani Blues,Gurugram,"Unit 195, Sector 25, Gurugram",High Street,3501.55,completed,True
+str-syn-0096,org-apex-retail,STR-CHU-HYD-096,Chumbak Lifestyle — Hyderabad Store #096,Chumbak Lifestyle,Hyderabad,"Unit 196, Sector 26, Hyderabad",Standalone Flagship,3114.02,completed,True
+str-syn-0097,org-apex-retail,STR-BUR-BEN-097,Burger Singh — Bengaluru Store #097,Burger Singh,Bengaluru,"Unit 197, Sector 27, Bengaluru",Standalone Flagship,2287.53,completed,True
+str-syn-0098,org-apex-retail,STR-NIC-DEL-098,Nicobar Living — Delhi Store #098,Nicobar Living,Delhi,"Unit 198, Sector 28, Delhi",Standalone Flagship,4197.88,completed,True
+str-syn-0099,org-apex-retail,STR-SUB-DEL-099,Subway Fresh — Delhi Store #099,Subway Fresh,Delhi,"Unit 199, Sector 29, Delhi",Mall,4062.59,completed,True
+str-syn-0100,org-apex-retail,STR-SUB-BEN-100,Subway Fresh — Bengaluru Store #100,Subway Fresh,Bengaluru,"Unit 200, Sector 30, Bengaluru",Standalone Flagship,2773.21,completed,True
+str-syn-0101,org-apex-retail,STR-SUB-MUM-101,Subway Fresh — Mumbai Store #101,Subway Fresh,Mumbai,"Unit 201, Sector 31, Mumbai",High Street,2842.79,completed,True
+str-syn-0102,org-apex-retail,STR-BUR-DEL-102,Burger Singh — Delhi Store #102,Burger Singh,Delhi,"Unit 202, Sector 32, Delhi",High Street,1218.74,completed,True
+str-syn-0103,org-apex-retail,STR-FAB-PUN-103,FabIndia Home — Pune Store #103,FabIndia Home,Pune,"Unit 203, Sector 33, Pune",High Street,3176.58,completed,True
+str-syn-0104,org-apex-retail,STR-FAB-CHE-104,FabIndia Home — Chennai Store #104,FabIndia Home,Chennai,"Unit 204, Sector 34, Chennai",High Street,3920.43,completed,True
+str-syn-0105,org-apex-retail,STR-BIR-DEL-105,Biryani Blues — Delhi Store #105,Biryani Blues,Delhi,"Unit 205, Sector 35, Delhi",Standalone Flagship,3201.25,completed,True
+str-syn-0106,org-apex-retail,STR-THI-DEL-106,Third Wave Coffee — Delhi Store #106,Third Wave Coffee,Delhi,"Unit 206, Sector 36, Delhi",Food Court,4190.25,completed,True
+str-syn-0107,org-apex-retail,STR-FAB-BEN-107,FabIndia Home — Bengaluru Store #107,FabIndia Home,Bengaluru,"Unit 207, Sector 37, Bengaluru",Mall,2068.1,completed,True
+str-syn-0108,org-apex-retail,STR-CAF-BEN-108,Cafe Chai Point — Bengaluru Store #108,Cafe Chai Point,Bengaluru,"Unit 208, Sector 38, Bengaluru",Food Court,2114.47,completed,True
+str-syn-0109,org-apex-retail,STR-CHU-MUM-109,Chumbak Lifestyle — Mumbai Store #109,Chumbak Lifestyle,Mumbai,"Unit 209, Sector 39, Mumbai",Standalone Flagship,4445.2,completed,True
+str-syn-0110,org-apex-retail,STR-SUB-HYD-110,Subway Fresh — Hyderabad Store #110,Subway Fresh,Hyderabad,"Unit 210, Sector 40, Hyderabad",High Street,3288.14,completed,True
+str-syn-0111,org-apex-retail,STR-BIR-HYD-111,Biryani Blues — Hyderabad Store #111,Biryani Blues,Hyderabad,"Unit 211, Sector 41, Hyderabad",Standalone Flagship,1595.36,completed,True
+str-syn-0112,org-apex-retail,STR-BIR-NOI-112,Biryani Blues — Noida Store #112,Biryani Blues,Noida,"Unit 212, Sector 42, Noida",Mall,3217.03,completed,True
+str-syn-0113,org-apex-retail,STR-BAR-DEL-113,Barista Coffee — Delhi Store #113,Barista Coffee,Delhi,"Unit 213, Sector 43, Delhi",High Street,3047.44,completed,True
+str-syn-0114,org-apex-retail,STR-BLU-MUM-114,Blue Tokai Coffee — Mumbai Store #114,Blue Tokai Coffee,Mumbai,"Unit 214, Sector 44, Mumbai",Food Court,1884.82,completed,True
+str-syn-0115,org-apex-retail,STR-BIR-HYD-115,Biryani Blues — Hyderabad Store #115,Biryani Blues,Hyderabad,"Unit 215, Sector 45, Hyderabad",Mall,3068.38,completed,True
+str-syn-0116,org-apex-retail,STR-BLU-NOI-116,Blue Tokai Coffee — Noida Store #116,Blue Tokai Coffee,Noida,"Unit 216, Sector 46, Noida",Food Court,2752.09,completed,True
+str-syn-0117,org-apex-retail,STR-BAR-BEN-117,Barista Coffee — Bengaluru Store #117,Barista Coffee,Bengaluru,"Unit 217, Sector 47, Bengaluru",High Street,4095.58,completed,True
+str-syn-0118,org-apex-retail,STR-FAB-GUR-118,FabIndia Home — Gurugram Store #118,FabIndia Home,Gurugram,"Unit 218, Sector 48, Gurugram",Mall,3167.54,completed,True
+str-syn-0119,org-apex-retail,STR-NIC-BEN-119,Nicobar Living — Bengaluru Store #119,Nicobar Living,Bengaluru,"Unit 219, Sector 49, Bengaluru",Food Court,2102.14,completed,True
+str-syn-0120,org-apex-retail,STR-SUB-MUM-120,Subway Fresh — Mumbai Store #120,Subway Fresh,Mumbai,"Unit 220, Sector 10, Mumbai",Standalone Flagship,2851.82,completed,True
+str-syn-0121,org-apex-retail,STR-FAB-MUM-121,FabIndia Home — Mumbai Store #121,FabIndia Home,Mumbai,"Unit 221, Sector 11, Mumbai",High Street,2331.04,completed,True
+str-syn-0122,org-apex-retail,STR-FAB-PUN-122,FabIndia Home — Pune Store #122,FabIndia Home,Pune,"Unit 222, Sector 12, Pune",Mall,1288.44,completed,True
+str-syn-0123,org-apex-retail,STR-BIR-BEN-123,Biryani Blues — Bengaluru Store #123,Biryani Blues,Bengaluru,"Unit 223, Sector 13, Bengaluru",Standalone Flagship,3965.16,completed,True
+str-syn-0124,org-apex-retail,STR-NIC-MUM-124,Nicobar Living — Mumbai Store #124,Nicobar Living,Mumbai,"Unit 224, Sector 14, Mumbai",High Street,1285.98,completed,True
+str-syn-0125,org-apex-retail,STR-THI-GUR-125,Third Wave Coffee — Gurugram Store #125,Third Wave Coffee,Gurugram,"Unit 225, Sector 15, Gurugram",Standalone Flagship,4125.18,completed,True
+str-syn-0126,org-apex-retail,STR-FAB-DEL-126,FabIndia Home — Delhi Store #126,FabIndia Home,Delhi,"Unit 226, Sector 16, Delhi",High Street,1659.84,completed,True
+str-syn-0127,org-apex-retail,STR-CAF-GUR-127,Cafe Chai Point — Gurugram Store #127,Cafe Chai Point,Gurugram,"Unit 227, Sector 17, Gurugram",Mall,3675.97,completed,True
+str-syn-0128,org-apex-retail,STR-BLU-BEN-128,Blue Tokai Coffee — Bengaluru Store #128,Blue Tokai Coffee,Bengaluru,"Unit 228, Sector 18, Bengaluru",Standalone Flagship,4094.5,completed,True
+str-syn-0129,org-apex-retail,STR-FAB-PUN-129,FabIndia Home — Pune Store #129,FabIndia Home,Pune,"Unit 229, Sector 19, Pune",Mall,4343.09,completed,True
+str-syn-0130,org-apex-retail,STR-SUB-BEN-130,Subway Fresh — Bengaluru Store #130,Subway Fresh,Bengaluru,"Unit 230, Sector 20, Bengaluru",Mall,1466.99,completed,True
+str-syn-0131,org-apex-retail,STR-CAF-PUN-131,Cafe Chai Point — Pune Store #131,Cafe Chai Point,Pune,"Unit 231, Sector 21, Pune",Standalone Flagship,3946.17,completed,True
+str-syn-0132,org-apex-retail,STR-NIC-HYD-132,Nicobar Living — Hyderabad Store #132,Nicobar Living,Hyderabad,"Unit 232, Sector 22, Hyderabad",Mall,1824.82,completed,True
+str-syn-0133,org-apex-retail,STR-CHA-HYD-133,Chaayos Express — Hyderabad Store #133,Chaayos Express,Hyderabad,"Unit 233, Sector 23, Hyderabad",Food Court,2323.89,completed,True
+str-syn-0134,org-apex-retail,STR-NIC-DEL-134,Nicobar Living — Delhi Store #134,Nicobar Living,Delhi,"Unit 234, Sector 24, Delhi",High Street,3018.01,completed,True
+str-syn-0135,org-apex-retail,STR-CHU-PUN-135,Chumbak Lifestyle — Pune Store #135,Chumbak Lifestyle,Pune,"Unit 235, Sector 25, Pune",Food Court,3951.23,completed,True
+str-syn-0136,org-apex-retail,STR-SUB-GUR-136,Subway Fresh — Gurugram Store #136,Subway Fresh,Gurugram,"Unit 236, Sector 26, Gurugram",Standalone Flagship,3381.07,completed,True
+str-syn-0137,org-apex-retail,STR-BIR-GUR-137,Biryani Blues — Gurugram Store #137,Biryani Blues,Gurugram,"Unit 237, Sector 27, Gurugram",Mall,1789.98,completed,True
+str-syn-0138,org-apex-retail,STR-BAR-HYD-138,Barista Coffee — Hyderabad Store #138,Barista Coffee,Hyderabad,"Unit 238, Sector 28, Hyderabad",Standalone Flagship,3591.68,completed,True
+str-syn-0139,org-apex-retail,STR-P.T-PUN-139,P.TAL Homeware — Pune Store #139,P.TAL Homeware,Pune,"Unit 239, Sector 29, Pune",Mall,3266.18,completed,True
+str-syn-0140,org-apex-retail,STR-CAF-HYD-140,Cafe Chai Point — Hyderabad Store #140,Cafe Chai Point,Hyderabad,"Unit 240, Sector 30, Hyderabad",Food Court,2046.86,completed,True
+str-syn-0141,org-apex-retail,STR-FAB-DEL-141,FabIndia Home — Delhi Store #141,FabIndia Home,Delhi,"Unit 241, Sector 31, Delhi",Food Court,1784.51,completed,True
+str-syn-0142,org-apex-retail,STR-SUB-HYD-142,Subway Fresh — Hyderabad Store #142,Subway Fresh,Hyderabad,"Unit 242, Sector 32, Hyderabad",Standalone Flagship,4150.04,completed,True
+str-syn-0143,org-apex-retail,STR-CHA-NOI-143,Chaayos Express — Noida Store #143,Chaayos Express,Noida,"Unit 243, Sector 33, Noida",Mall,4084.94,completed,True
+str-syn-0144,org-apex-retail,STR-FAB-BEN-144,FabIndia Home — Bengaluru Store #144,FabIndia Home,Bengaluru,"Unit 244, Sector 34, Bengaluru",Food Court,1283.75,completed,True
+str-syn-0145,org-apex-retail,STR-THI-HYD-145,Third Wave Coffee — Hyderabad Store #145,Third Wave Coffee,Hyderabad,"Unit 245, Sector 35, Hyderabad",High Street,1665.93,completed,True
+str-syn-0146,org-apex-retail,STR-BUR-HYD-146,Burger Singh — Hyderabad Store #146,Burger Singh,Hyderabad,"Unit 246, Sector 36, Hyderabad",High Street,3195.3,completed,True
+str-syn-0147,org-apex-retail,STR-CHA-MUM-147,Chaayos Express — Mumbai Store #147,Chaayos Express,Mumbai,"Unit 247, Sector 37, Mumbai",Standalone Flagship,2965.7,completed,True
+str-syn-0148,org-apex-retail,STR-BLU-GUR-148,Blue Tokai Coffee — Gurugram Store #148,Blue Tokai Coffee,Gurugram,"Unit 248, Sector 38, Gurugram",Food Court,3894.94,completed,True
+str-syn-0149,org-apex-retail,STR-SUB-DEL-149,Subway Fresh — Delhi Store #149,Subway Fresh,Delhi,"Unit 249, Sector 39, Delhi",High Street,3665.64,completed,True
+str-syn-0150,org-apex-retail,STR-FAB-MUM-150,FabIndia Home — Mumbai Store #150,FabIndia Home,Mumbai,"Unit 250, Sector 40, Mumbai",Food Court,4370.71,completed,True
+str-syn-0151,org-apex-retail,STR-CHA-GUR-151,Chaayos Express — Gurugram Store #151,Chaayos Express,Gurugram,"Unit 251, Sector 41, Gurugram",Food Court,3701.1,completed,True
+str-syn-0152,org-apex-retail,STR-CHA-HYD-152,Chaayos Express — Hyderabad Store #152,Chaayos Express,Hyderabad,"Unit 252, Sector 42, Hyderabad",High Street,2049.12,completed,True
+str-syn-0153,org-apex-retail,STR-CHU-DEL-153,Chumbak Lifestyle — Delhi Store #153,Chumbak Lifestyle,Delhi,"Unit 253, Sector 43, Delhi",High Street,3721.31,completed,True
+str-syn-0154,org-apex-retail,STR-BIR-NOI-154,Biryani Blues — Noida Store #154,Biryani Blues,Noida,"Unit 254, Sector 44, Noida",Standalone Flagship,1415.16,completed,True
+str-syn-0155,org-apex-retail,STR-BUR-DEL-155,Burger Singh — Delhi Store #155,Burger Singh,Delhi,"Unit 255, Sector 45, Delhi",High Street,1283.23,completed,True
+str-syn-0156,org-apex-retail,STR-BAR-NOI-156,Barista Coffee — Noida Store #156,Barista Coffee,Noida,"Unit 256, Sector 46, Noida",Mall,3633.69,completed,True
+str-syn-0157,org-apex-retail,STR-THI-DEL-157,Third Wave Coffee — Delhi Store #157,Third Wave Coffee,Delhi,"Unit 257, Sector 47, Delhi",Mall,2198.96,completed,True
+str-syn-0158,org-apex-retail,STR-BAR-DEL-158,Barista Coffee — Delhi Store #158,Barista Coffee,Delhi,"Unit 258, Sector 48, Delhi",Mall,3181.33,completed,True
+str-syn-0159,org-apex-retail,STR-CAF-DEL-159,Cafe Chai Point — Delhi Store #159,Cafe Chai Point,Delhi,"Unit 259, Sector 49, Delhi",High Street,3075.28,completed,True
+str-syn-0160,org-apex-retail,STR-P.T-DEL-160,P.TAL Homeware — Delhi Store #160,P.TAL Homeware,Delhi,"Unit 260, Sector 10, Delhi",Mall,3808.35,completed,True
+str-syn-0161,org-apex-retail,STR-CHA-PUN-161,Chaayos Express — Pune Store #161,Chaayos Express,Pune,"Unit 261, Sector 11, Pune",Standalone Flagship,2763.36,completed,True
+str-syn-0162,org-apex-retail,STR-P.T-DEL-162,P.TAL Homeware — Delhi Store #162,P.TAL Homeware,Delhi,"Unit 262, Sector 12, Delhi",Mall,3077.99,completed,True
+str-syn-0163,org-apex-retail,STR-BIR-PUN-163,Biryani Blues — Pune Store #163,Biryani Blues,Pune,"Unit 263, Sector 13, Pune",High Street,1656.3,completed,True
+str-syn-0164,org-apex-retail,STR-CAF-NOI-164,Cafe Chai Point — Noida Store #164,Cafe Chai Point,Noida,"Unit 264, Sector 14, Noida",Mall,3478.74,completed,True
+str-syn-0165,org-apex-retail,STR-P.T-DEL-165,P.TAL Homeware — Delhi Store #165,P.TAL Homeware,Delhi,"Unit 265, Sector 15, Delhi",High Street,3018.24,completed,True
+str-syn-0166,org-apex-retail,STR-BAR-HYD-166,Barista Coffee — Hyderabad Store #166,Barista Coffee,Hyderabad,"Unit 266, Sector 16, Hyderabad",Standalone Flagship,2721.8,completed,True
+str-syn-0167,org-apex-retail,STR-CHU-PUN-167,Chumbak Lifestyle — Pune Store #167,Chumbak Lifestyle,Pune,"Unit 267, Sector 17, Pune",Food Court,1307.26,completed,True
+str-syn-0168,org-apex-retail,STR-FAB-BEN-168,FabIndia Home — Bengaluru Store #168,FabIndia Home,Bengaluru,"Unit 268, Sector 18, Bengaluru",High Street,3710.81,completed,True
+str-syn-0169,org-apex-retail,STR-FAB-GUR-169,FabIndia Home — Gurugram Store #169,FabIndia Home,Gurugram,"Unit 269, Sector 19, Gurugram",Mall,3015.45,completed,True
+str-syn-0170,org-apex-retail,STR-CAF-BEN-170,Cafe Chai Point — Bengaluru Store #170,Cafe Chai Point,Bengaluru,"Unit 270, Sector 20, Bengaluru",Mall,4230.23,completed,True
+str-syn-0171,org-apex-retail,STR-BUR-CHE-171,Burger Singh — Chennai Store #171,Burger Singh,Chennai,"Unit 271, Sector 21, Chennai",Mall,2750.69,completed,True
+str-syn-0172,org-apex-retail,STR-CHA-PUN-172,Chaayos Express — Pune Store #172,Chaayos Express,Pune,"Unit 272, Sector 22, Pune",Food Court,3621.24,completed,True
+str-syn-0173,org-apex-retail,STR-CHU-HYD-173,Chumbak Lifestyle — Hyderabad Store #173,Chumbak Lifestyle,Hyderabad,"Unit 273, Sector 23, Hyderabad",Standalone Flagship,2877.22,completed,True
+str-syn-0174,org-apex-retail,STR-BIR-MUM-174,Biryani Blues — Mumbai Store #174,Biryani Blues,Mumbai,"Unit 274, Sector 24, Mumbai",High Street,2979.85,completed,True
+str-syn-0175,org-apex-retail,STR-NIC-HYD-175,Nicobar Living — Hyderabad Store #175,Nicobar Living,Hyderabad,"Unit 275, Sector 25, Hyderabad",High Street,4125.95,completed,True
+str-syn-0176,org-apex-retail,STR-SUB-DEL-176,Subway Fresh — Delhi Store #176,Subway Fresh,Delhi,"Unit 276, Sector 26, Delhi",Standalone Flagship,3054.8,completed,True
+str-syn-0177,org-apex-retail,STR-CHA-DEL-177,Chaayos Express — Delhi Store #177,Chaayos Express,Delhi,"Unit 277, Sector 27, Delhi",Mall,4338.7,completed,True
+str-syn-0178,org-apex-retail,STR-SUB-GUR-178,Subway Fresh — Gurugram Store #178,Subway Fresh,Gurugram,"Unit 278, Sector 28, Gurugram",High Street,4480.78,completed,True
+str-syn-0179,org-apex-retail,STR-CHA-GUR-179,Chaayos Express — Gurugram Store #179,Chaayos Express,Gurugram,"Unit 279, Sector 29, Gurugram",Standalone Flagship,2150.21,completed,True
+str-syn-0180,org-apex-retail,STR-FAB-GUR-180,FabIndia Home — Gurugram Store #180,FabIndia Home,Gurugram,"Unit 280, Sector 30, Gurugram",Standalone Flagship,3941.56,completed,True
+str-syn-0181,org-apex-retail,STR-BIR-DEL-181,Biryani Blues — Delhi Store #181,Biryani Blues,Delhi,"Unit 281, Sector 31, Delhi",Food Court,2617.09,completed,True
+str-syn-0182,org-apex-retail,STR-BUR-BEN-182,Burger Singh — Bengaluru Store #182,Burger Singh,Bengaluru,"Unit 282, Sector 32, Bengaluru",Mall,4391.86,completed,True
+str-syn-0183,org-apex-retail,STR-THI-MUM-183,Third Wave Coffee — Mumbai Store #183,Third Wave Coffee,Mumbai,"Unit 283, Sector 33, Mumbai",Food Court,1918.71,completed,True
+str-syn-0184,org-apex-retail,STR-BLU-HYD-184,Blue Tokai Coffee — Hyderabad Store #184,Blue Tokai Coffee,Hyderabad,"Unit 284, Sector 34, Hyderabad",Food Court,2776.73,completed,True
+str-syn-0185,org-apex-retail,STR-BLU-HYD-185,Blue Tokai Coffee — Hyderabad Store #185,Blue Tokai Coffee,Hyderabad,"Unit 285, Sector 35, Hyderabad",Standalone Flagship,2442.59,completed,True
+str-syn-0186,org-apex-retail,STR-CAF-HYD-186,Cafe Chai Point — Hyderabad Store #186,Cafe Chai Point,Hyderabad,"Unit 286, Sector 36, Hyderabad",Food Court,2687.94,completed,True
+str-syn-0187,org-apex-retail,STR-SUB-DEL-187,Subway Fresh — Delhi Store #187,Subway Fresh,Delhi,"Unit 287, Sector 37, Delhi",Standalone Flagship,4458.01,completed,True
+str-syn-0188,org-apex-retail,STR-SUB-BEN-188,Subway Fresh — Bengaluru Store #188,Subway Fresh,Bengaluru,"Unit 288, Sector 38, Bengaluru",High Street,3523.16,completed,True
+str-syn-0189,org-apex-retail,STR-NIC-CHE-189,Nicobar Living — Chennai Store #189,Nicobar Living,Chennai,"Unit 289, Sector 39, Chennai",High Street,1861.59,completed,True
+str-syn-0190,org-apex-retail,STR-CAF-BEN-190,Cafe Chai Point — Bengaluru Store #190,Cafe Chai Point,Bengaluru,"Unit 290, Sector 40, Bengaluru",Standalone Flagship,2014.39,completed,True
+str-syn-0191,org-apex-retail,STR-CHA-DEL-191,Chaayos Express — Delhi Store #191,Chaayos Express,Delhi,"Unit 291, Sector 41, Delhi",High Street,3726.78,completed,True
+str-syn-0192,org-apex-retail,STR-BUR-NOI-192,Burger Singh — Noida Store #192,Burger Singh,Noida,"Unit 292, Sector 42, Noida",High Street,1793.2,completed,True
+str-syn-0193,org-apex-retail,STR-CAF-MUM-193,Cafe Chai Point — Mumbai Store #193,Cafe Chai Point,Mumbai,"Unit 293, Sector 43, Mumbai",High Street,3714.14,completed,True
+str-syn-0194,org-apex-retail,STR-BAR-HYD-194,Barista Coffee — Hyderabad Store #194,Barista Coffee,Hyderabad,"Unit 294, Sector 44, Hyderabad",Mall,1711.41,completed,True
+str-syn-0195,org-apex-retail,STR-FAB-GUR-195,FabIndia Home — Gurugram Store #195,FabIndia Home,Gurugram,"Unit 295, Sector 45, Gurugram",Mall,1993.13,completed,True
+str-syn-0196,org-apex-retail,STR-BAR-PUN-196,Barista Coffee — Pune Store #196,Barista Coffee,Pune,"Unit 296, Sector 46, Pune",Food Court,2415.39,completed,True
+str-syn-0197,org-apex-retail,STR-CAF-CHE-197,Cafe Chai Point — Chennai Store #197,Cafe Chai Point,Chennai,"Unit 297, Sector 47, Chennai",Food Court,1617.04,completed,True
+str-syn-0198,org-apex-retail,STR-CHA-CHE-198,Chaayos Express — Chennai Store #198,Chaayos Express,Chennai,"Unit 298, Sector 48, Chennai",High Street,1936.6,completed,True
+str-syn-0199,org-apex-retail,STR-BUR-HYD-199,Burger Singh — Hyderabad Store #199,Burger Singh,Hyderabad,"Unit 299, Sector 49, Hyderabad",Mall,2931.75,completed,True
+str-syn-0200,org-apex-retail,STR-BUR-GUR-200,Burger Singh — Gurugram Store #200,Burger Singh,Gurugram,"Unit 300, Sector 10, Gurugram",Mall,3432.5,completed,True
+str-syn-0201,org-apex-retail,STR-P.T-PUN-201,P.TAL Homeware — Pune Store #201,P.TAL Homeware,Pune,"Unit 301, Sector 11, Pune",Mall,3727.92,completed,True
+str-syn-0202,org-apex-retail,STR-CHU-PUN-202,Chumbak Lifestyle — Pune Store #202,Chumbak Lifestyle,Pune,"Unit 302, Sector 12, Pune",Food Court,3164.7,completed,True
+str-syn-0203,org-apex-retail,STR-BLU-NOI-203,Blue Tokai Coffee — Noida Store #203,Blue Tokai Coffee,Noida,"Unit 303, Sector 13, Noida",High Street,3056.87,completed,True
+str-syn-0204,org-apex-retail,STR-CHU-HYD-204,Chumbak Lifestyle — Hyderabad Store #204,Chumbak Lifestyle,Hyderabad,"Unit 304, Sector 14, Hyderabad",Standalone Flagship,1952.22,completed,True
+str-syn-0205,org-apex-retail,STR-FAB-HYD-205,FabIndia Home — Hyderabad Store #205,FabIndia Home,Hyderabad,"Unit 305, Sector 15, Hyderabad",Standalone Flagship,3490.1,completed,True
+str-syn-0206,org-apex-retail,STR-FAB-MUM-206,FabIndia Home — Mumbai Store #206,FabIndia Home,Mumbai,"Unit 306, Sector 16, Mumbai",Standalone Flagship,2242.69,completed,True
+str-syn-0207,org-apex-retail,STR-CHA-HYD-207,Chaayos Express — Hyderabad Store #207,Chaayos Express,Hyderabad,"Unit 307, Sector 17, Hyderabad",Standalone Flagship,1965.27,completed,True
+str-syn-0208,org-apex-retail,STR-BLU-GUR-208,Blue Tokai Coffee — Gurugram Store #208,Blue Tokai Coffee,Gurugram,"Unit 308, Sector 18, Gurugram",Mall,3207.62,completed,True
+str-syn-0209,org-apex-retail,STR-NIC-HYD-209,Nicobar Living — Hyderabad Store #209,Nicobar Living,Hyderabad,"Unit 309, Sector 19, Hyderabad",Standalone Flagship,1740.35,completed,True
+str-syn-0210,org-apex-retail,STR-P.T-MUM-210,P.TAL Homeware — Mumbai Store #210,P.TAL Homeware,Mumbai,"Unit 310, Sector 20, Mumbai",Standalone Flagship,3026.9,completed,True
+str-syn-0211,org-apex-retail,STR-P.T-CHE-211,P.TAL Homeware — Chennai Store #211,P.TAL Homeware,Chennai,"Unit 311, Sector 21, Chennai",High Street,1208.76,completed,True
+str-syn-0212,org-apex-retail,STR-SUB-BEN-212,Subway Fresh — Bengaluru Store #212,Subway Fresh,Bengaluru,"Unit 312, Sector 22, Bengaluru",Food Court,3488.91,completed,True
+str-syn-0213,org-apex-retail,STR-BUR-MUM-213,Burger Singh — Mumbai Store #213,Burger Singh,Mumbai,"Unit 313, Sector 23, Mumbai",Standalone Flagship,1344.19,completed,True
+str-syn-0214,org-apex-retail,STR-BUR-DEL-214,Burger Singh — Delhi Store #214,Burger Singh,Delhi,"Unit 314, Sector 24, Delhi",Food Court,2597.92,completed,True
+str-syn-0215,org-apex-retail,STR-P.T-CHE-215,P.TAL Homeware — Chennai Store #215,P.TAL Homeware,Chennai,"Unit 315, Sector 25, Chennai",Standalone Flagship,3310.15,completed,True
+str-syn-0216,org-apex-retail,STR-BIR-HYD-216,Biryani Blues — Hyderabad Store #216,Biryani Blues,Hyderabad,"Unit 316, Sector 26, Hyderabad",Standalone Flagship,3286.81,completed,True
+str-syn-0217,org-apex-retail,STR-BIR-NOI-217,Biryani Blues — Noida Store #217,Biryani Blues,Noida,"Unit 317, Sector 27, Noida",Mall,3637.63,completed,True
+str-syn-0218,org-apex-retail,STR-CHU-MUM-218,Chumbak Lifestyle — Mumbai Store #218,Chumbak Lifestyle,Mumbai,"Unit 318, Sector 28, Mumbai",Mall,4247.92,completed,True
+str-syn-0219,org-apex-retail,STR-CHU-CHE-219,Chumbak Lifestyle — Chennai Store #219,Chumbak Lifestyle,Chennai,"Unit 319, Sector 29, Chennai",Food Court,1395.66,completed,True
+str-syn-0220,org-apex-retail,STR-CHU-CHE-220,Chumbak Lifestyle — Chennai Store #220,Chumbak Lifestyle,Chennai,"Unit 320, Sector 30, Chennai",Standalone Flagship,3614.12,completed,True
+str-syn-0221,org-apex-retail,STR-THI-GUR-221,Third Wave Coffee — Gurugram Store #221,Third Wave Coffee,Gurugram,"Unit 321, Sector 31, Gurugram",Food Court,2951.16,completed,True
+str-syn-0222,org-apex-retail,STR-CHU-NOI-222,Chumbak Lifestyle — Noida Store #222,Chumbak Lifestyle,Noida,"Unit 322, Sector 32, Noida",Mall,3403.91,completed,True
+str-syn-0223,org-apex-retail,STR-BIR-CHE-223,Biryani Blues — Chennai Store #223,Biryani Blues,Chennai,"Unit 323, Sector 33, Chennai",Food Court,2386.42,completed,True
+str-syn-0224,org-apex-retail,STR-NIC-BEN-224,Nicobar Living — Bengaluru Store #224,Nicobar Living,Bengaluru,"Unit 324, Sector 34, Bengaluru",Food Court,1910.77,completed,True
+str-syn-0225,org-apex-retail,STR-NIC-MUM-225,Nicobar Living — Mumbai Store #225,Nicobar Living,Mumbai,"Unit 325, Sector 35, Mumbai",High Street,2205.24,completed,True
+str-syn-0226,org-apex-retail,STR-CHU-GUR-226,Chumbak Lifestyle — Gurugram Store #226,Chumbak Lifestyle,Gurugram,"Unit 326, Sector 36, Gurugram",High Street,1354.78,completed,True
+str-syn-0227,org-apex-retail,STR-BAR-HYD-227,Barista Coffee — Hyderabad Store #227,Barista Coffee,Hyderabad,"Unit 327, Sector 37, Hyderabad",Food Court,3606.32,completed,True
+str-syn-0228,org-apex-retail,STR-FAB-MUM-228,FabIndia Home — Mumbai Store #228,FabIndia Home,Mumbai,"Unit 328, Sector 38, Mumbai",Mall,3905.72,completed,True
+str-syn-0229,org-apex-retail,STR-BLU-DEL-229,Blue Tokai Coffee — Delhi Store #229,Blue Tokai Coffee,Delhi,"Unit 329, Sector 39, Delhi",Mall,1762.37,completed,True
+str-syn-0230,org-apex-retail,STR-NIC-NOI-230,Nicobar Living — Noida Store #230,Nicobar Living,Noida,"Unit 330, Sector 40, Noida",Mall,3113.58,completed,True
+str-syn-0231,org-apex-retail,STR-NIC-CHE-231,Nicobar Living — Chennai Store #231,Nicobar Living,Chennai,"Unit 331, Sector 41, Chennai",Food Court,2457.61,completed,True
+str-syn-0232,org-apex-retail,STR-BUR-CHE-232,Burger Singh — Chennai Store #232,Burger Singh,Chennai,"Unit 332, Sector 42, Chennai",Food Court,1886.86,completed,True
+str-syn-0233,org-apex-retail,STR-CHU-BEN-233,Chumbak Lifestyle — Bengaluru Store #233,Chumbak Lifestyle,Bengaluru,"Unit 333, Sector 43, Bengaluru",Standalone Flagship,2632.18,completed,True
+str-syn-0234,org-apex-retail,STR-THI-PUN-234,Third Wave Coffee — Pune Store #234,Third Wave Coffee,Pune,"Unit 334, Sector 44, Pune",Food Court,2797.87,completed,True
+str-syn-0235,org-apex-retail,STR-P.T-NOI-235,P.TAL Homeware — Noida Store #235,P.TAL Homeware,Noida,"Unit 335, Sector 45, Noida",Food Court,1941.19,completed,True
+str-syn-0236,org-apex-retail,STR-CAF-PUN-236,Cafe Chai Point — Pune Store #236,Cafe Chai Point,Pune,"Unit 336, Sector 46, Pune",Food Court,4203.97,completed,True
+str-syn-0237,org-apex-retail,STR-CAF-CHE-237,Cafe Chai Point — Chennai Store #237,Cafe Chai Point,Chennai,"Unit 337, Sector 47, Chennai",Mall,3916.29,completed,True
+str-syn-0238,org-apex-retail,STR-CHA-BEN-238,Chaayos Express — Bengaluru Store #238,Chaayos Express,Bengaluru,"Unit 338, Sector 48, Bengaluru",Standalone Flagship,3068.02,completed,True
+str-syn-0239,org-apex-retail,STR-SUB-DEL-239,Subway Fresh — Delhi Store #239,Subway Fresh,Delhi,"Unit 339, Sector 49, Delhi",Standalone Flagship,2713.62,completed,True
+str-syn-0240,org-apex-retail,STR-FAB-PUN-240,FabIndia Home — Pune Store #240,FabIndia Home,Pune,"Unit 340, Sector 10, Pune",Food Court,3487.11,completed,True
+str-syn-0241,org-apex-retail,STR-BAR-GUR-241,Barista Coffee — Gurugram Store #241,Barista Coffee,Gurugram,"Unit 341, Sector 11, Gurugram",Standalone Flagship,3750.81,completed,True
+str-syn-0242,org-apex-retail,STR-BIR-GUR-242,Biryani Blues — Gurugram Store #242,Biryani Blues,Gurugram,"Unit 342, Sector 12, Gurugram",High Street,2562.04,completed,True
+str-syn-0243,org-apex-retail,STR-FAB-MUM-243,FabIndia Home — Mumbai Store #243,FabIndia Home,Mumbai,"Unit 343, Sector 13, Mumbai",High Street,1585.03,completed,True
+str-syn-0244,org-apex-retail,STR-CHA-PUN-244,Chaayos Express — Pune Store #244,Chaayos Express,Pune,"Unit 344, Sector 14, Pune",High Street,1613.81,completed,True
+str-syn-0245,org-apex-retail,STR-BIR-BEN-245,Biryani Blues — Bengaluru Store #245,Biryani Blues,Bengaluru,"Unit 345, Sector 15, Bengaluru",High Street,4171.51,completed,True
+str-syn-0246,org-apex-retail,STR-CHU-PUN-246,Chumbak Lifestyle — Pune Store #246,Chumbak Lifestyle,Pune,"Unit 346, Sector 16, Pune",Mall,2544.47,completed,True
+str-syn-0247,org-apex-retail,STR-SUB-CHE-247,Subway Fresh — Chennai Store #247,Subway Fresh,Chennai,"Unit 347, Sector 17, Chennai",High Street,2922.21,completed,True
+str-syn-0248,org-apex-retail,STR-NIC-NOI-248,Nicobar Living — Noida Store #248,Nicobar Living,Noida,"Unit 348, Sector 18, Noida",Standalone Flagship,2466.5,completed,True
+str-syn-0249,org-apex-retail,STR-BIR-GUR-249,Biryani Blues — Gurugram Store #249,Biryani Blues,Gurugram,"Unit 349, Sector 19, Gurugram",Standalone Flagship,3277.9,completed,True
+str-syn-0250,org-apex-retail,STR-BIR-DEL-250,Biryani Blues — Delhi Store #250,Biryani Blues,Delhi,"Unit 350, Sector 20, Delhi",Food Court,3438.79,completed,True
+str-syn-0251,org-apex-retail,STR-CHU-MUM-251,Chumbak Lifestyle — Mumbai Store #251,Chumbak Lifestyle,Mumbai,"Unit 351, Sector 21, Mumbai",Mall,2259.18,completed,True
+str-syn-0252,org-apex-retail,STR-NIC-BEN-252,Nicobar Living — Bengaluru Store #252,Nicobar Living,Bengaluru,"Unit 352, Sector 22, Bengaluru",High Street,1339.73,completed,True
+str-syn-0253,org-apex-retail,STR-BLU-HYD-253,Blue Tokai Coffee — Hyderabad Store #253,Blue Tokai Coffee,Hyderabad,"Unit 353, Sector 23, Hyderabad",Mall,1401.68,completed,True
+str-syn-0254,org-apex-retail,STR-NIC-NOI-254,Nicobar Living — Noida Store #254,Nicobar Living,Noida,"Unit 354, Sector 24, Noida",Standalone Flagship,1722.38,completed,True
+str-syn-0255,org-apex-retail,STR-BAR-HYD-255,Barista Coffee — Hyderabad Store #255,Barista Coffee,Hyderabad,"Unit 355, Sector 25, Hyderabad",Mall,1381.62,completed,True
+str-syn-0256,org-apex-retail,STR-CAF-HYD-256,Cafe Chai Point — Hyderabad Store #256,Cafe Chai Point,Hyderabad,"Unit 356, Sector 26, Hyderabad",Standalone Flagship,2060.5,completed,True
+str-syn-0257,org-apex-retail,STR-CAF-MUM-257,Cafe Chai Point — Mumbai Store #257,Cafe Chai Point,Mumbai,"Unit 357, Sector 27, Mumbai",Mall,3719.51,completed,True
+str-syn-0258,org-apex-retail,STR-BIR-GUR-258,Biryani Blues — Gurugram Store #258,Biryani Blues,Gurugram,"Unit 358, Sector 28, Gurugram",High Street,2591.58,completed,True
+str-syn-0259,org-apex-retail,STR-BUR-GUR-259,Burger Singh — Gurugram Store #259,Burger Singh,Gurugram,"Unit 359, Sector 29, Gurugram",High Street,2207.65,completed,True
+str-syn-0260,org-apex-retail,STR-P.T-DEL-260,P.TAL Homeware — Delhi Store #260,P.TAL Homeware,Delhi,"Unit 360, Sector 30, Delhi",Food Court,3874.45,completed,True

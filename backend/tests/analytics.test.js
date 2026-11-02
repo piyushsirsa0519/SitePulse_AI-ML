@@ -134,6 +134,15 @@ test('Project 3: P.TAL Homeware - Hyderabad (Baseline Checks)', (t) => {
     assert.equal(rec.hasBottleneck, true);
     assert.equal(rec.isManpower, true);
     assert.equal(rec.extraWorkers, 0, 'Current formula yields 0 extra workers');
+    assert.equal(rec.workersPresent, 5, '5 workers present');
+    assert.equal(rec.workersRequired, 14, '14 workers required');
+    assert.equal(rec.staffingDeficit, 9, '9-worker staffing deficit');
+    assert.equal(rec.deadlineBufferDays, 16, '16-day projected deadline buffer');
+    assert.equal(rec.delayDays, -16, '16 days ahead of deadline');
+    assert.ok(rec.actionText.includes('Contractual deadline projected to remain protected (16d buffer).'));
+    assert.ok(rec.actionText.includes('Evaluate deploying up to 9 additional qualified workers to Civil to recover planned milestone.'));
+    assert.ok(rec.supportingText.includes('16 days ahead of deadline (+16d buffer)'));
+    assert.ok(!rec.actionText.toLowerCase().includes('mason'));
 });
 
 test('Portfolio Risk Aggregation & Sorting', (t) => {
@@ -192,3 +201,65 @@ test('Edge Case: Zero Progress / Zero Days Elapsed', (t) => {
     assert.equal(rec.isUnavailable, true);
     assert.equal(rec.actionText, 'Manpower estimate unavailable — insufficient progress history.');
 });
+
+test('Civil Bottleneck Recommendation: Three Deadline Scenarios (delayDays < 0, === 0, > 0)', (t) => {
+    // 1. Scenario 1: delayDays < 0 (Ahead of deadline - e.g. P.TAL Homeware baseline)
+    const projAhead = {
+        id: 'prj-ahead',
+        startDate: '2026-09-10',
+        deadline: '2026-11-15',
+        trades: [
+            { name: 'Civil', planned: 70, actual: 42, workersPresent: 5, workersRequired: 14, reason: 'Labour Shortage' }
+        ]
+    };
+    const recAhead = getRecommendation(projAhead, TODAY);
+    assert.equal(recAhead.workersPresent, 5);
+    assert.equal(recAhead.workersRequired, 14);
+    assert.equal(recAhead.staffingDeficit, 9);
+    assert.equal(recAhead.delayDays, -16);
+    assert.equal(recAhead.deadlineBufferDays, 16);
+    assert.ok(recAhead.actionText.includes('Contractual deadline projected to remain protected (16d buffer).'));
+    assert.ok(recAhead.actionText.includes('Evaluate deploying up to 9 additional qualified workers to Civil to recover planned milestone.'));
+    assert.ok(recAhead.supportingText.includes('16 days ahead of deadline (+16d buffer)'));
+    assert.ok(!recAhead.actionText.toLowerCase().includes('mason'));
+
+    // 2. Scenario 2: delayDays === 0 (Exactly on contractual deadline)
+    // daysElapsed = 20, actual = 50% => dailyRate = 2.5%/day.
+    // remainingProgress = 50% => remainingDays = 20 days.
+    // Oct 01 + 20 days = Oct 21. deadline: 2026-10-21. delayDays = 0.
+    const projOnDeadline = {
+        id: 'prj-on-deadline',
+        startDate: '2026-09-11',
+        deadline: '2026-10-21',
+        trades: [
+            { name: 'Civil', planned: 70, actual: 50, workersPresent: 5, workersRequired: 14, reason: 'Labour Shortage' }
+        ]
+    };
+    const recOnDeadline = getRecommendation(projOnDeadline, TODAY);
+    assert.equal(recOnDeadline.staffingDeficit, 9);
+    assert.equal(recOnDeadline.delayDays, 0);
+    assert.equal(recOnDeadline.deadlineBufferDays, 0);
+    assert.ok(recOnDeadline.actionText.includes('Completion projected on the contractual deadline (0d buffer).'));
+    assert.ok(recOnDeadline.actionText.includes('Evaluate deploying up to 9 additional qualified workers to Civil to recover planned milestone.'));
+    assert.ok(recOnDeadline.supportingText.includes('completion on the contractual deadline (0d buffer)'));
+
+    // 3. Scenario 3: delayDays > 0 (At risk / Late)
+    // daysElapsed = 20, actual = 40% => dailyRate = 2.0%/day.
+    // remainingProgress = 60% => remainingDays = 30 days.
+    // Oct 01 + 30 days = Oct 31. deadline: 2026-10-26 (25 days from today). delayDays = +5 days.
+    const projLate = {
+        id: 'prj-late',
+        startDate: '2026-09-11',
+        deadline: '2026-10-26',
+        trades: [
+            { name: 'Civil', planned: 70, actual: 40, workersPresent: 5, workersRequired: 14, reason: 'Labour Shortage' }
+        ]
+    };
+    const recLate = getRecommendation(projLate, TODAY);
+    assert.equal(recLate.staffingDeficit, 9);
+    assert.equal(recLate.delayDays, 5);
+    assert.ok(recLate.actionText.includes('Contractual deadline at risk (projected 5d late).'));
+    assert.ok(recLate.actionText.includes('Evaluate deploying up to 9 additional qualified workers to Civil to recover planned milestone.'));
+    assert.ok(recLate.supportingText.includes('projects completion 5 days late'));
+});
+

@@ -69,6 +69,7 @@ async function getFullProjectData(projectId, orgId) {
             deadline: projectRow.deadline,
             status: projectRow.status,
             organization_id: projectRow.organization_id,
+            store_id: projectRow.store_id,
             trades: trades
         };
     }
@@ -109,6 +110,7 @@ async function getFullProjectData(projectId, orgId) {
         deadline: projectRow.deadline,
         status: projectRow.status,
         organization_id: projectRow.organization_id,
+        store_id: projectRow.store_id,
         trades: trades
     };
 }
@@ -125,6 +127,69 @@ async function getProjectDashboardData(projectId, orgId, referenceDate = new Dat
     const forecast = calculateProjectedCompletion(fullProject, referenceDate);
     const recommendation = getRecommendation(fullProject, referenceDate);
 
+    // Fetch associated delay events and contractor assignments
+    let delayEvents = [];
+    let contractors = [];
+    let storeInfo = null;
+
+    if (db.pool) {
+        const deRes = await db.query(
+            "SELECT * FROM delay_events WHERE project_id = $1 ORDER BY identified_date DESC",
+            [projectId]
+        );
+        delayEvents = deRes.rows;
+
+        const caRes = await db.query(
+            `SELECT c.id, c.name, c.trade_specialty, c.contact_person, c.contact_email, c.rating, ca.trade_id, ca.contract_value 
+             FROM contractor_assignments ca 
+             JOIN contractors c ON ca.contractor_id = c.id 
+             WHERE ca.project_id = $1 AND ca.status = 'active'`,
+            [projectId]
+        );
+        contractors = caRes.rows;
+
+        if (fullProject.store_id) {
+            const stRes = await db.query("SELECT * FROM stores WHERE id = $1", [fullProject.store_id]);
+            storeInfo = stRes.rows[0] || null;
+        }
+    } else {
+        delayEvents = (db.store.delay_events || []).filter(d => d.project_id === projectId);
+        const assignments = (db.store.contractor_assignments || []).filter(ca => ca.project_id === projectId && ca.status === 'active');
+        contractors = assignments.map(ca => {
+            const c = (db.store.contractors || []).find(cnt => cnt.id === ca.contractor_id) || {};
+            return {
+                id: c.id,
+                name: c.name,
+                trade_specialty: c.trade_specialty,
+                contact_person: c.contact_person,
+                contact_email: c.contact_email,
+                rating: c.rating,
+                trade_id: ca.trade_id,
+                contract_value: ca.contract_value
+            };
+        });
+
+        if (fullProject.store_id) {
+            storeInfo = (db.store.stores || []).find(s => s.id === fullProject.store_id) || null;
+        }
+    }
+
+    // Attach contractor details to individual trade objects
+    const contractorByTradeMap = {};
+    contractors.forEach(c => {
+        if (c.trade_id) contractorByTradeMap[c.trade_id] = c;
+    });
+
+    const enrichedTrades = fullProject.trades.map(t => {
+        const assignedContractor = contractorByTradeMap[t.id];
+        return {
+            ...t,
+            contractor_name: assignedContractor ? assignedContractor.name : 'Apex Retail Crew',
+            contractor_id: assignedContractor ? assignedContractor.id : null,
+            contractor_rating: assignedContractor ? assignedContractor.rating : null
+        };
+    });
+
     return {
         project: {
             id: fullProject.id,
@@ -132,13 +197,18 @@ async function getProjectDashboardData(projectId, orgId, referenceDate = new Dat
             location: fullProject.location,
             startDate: fullProject.startDate,
             deadline: fullProject.deadline,
-            status: fullProject.status
+            status: fullProject.status,
+            store_id: fullProject.store_id,
+            store: storeInfo
         },
         metrics,
-        trades: fullProject.trades,
+        trades: enrichedTrades,
         bottleneck,
         forecast,
-        recommendation
+        recommendation,
+        delayEvents,
+        contractors,
+        store: storeInfo
     };
 }
 

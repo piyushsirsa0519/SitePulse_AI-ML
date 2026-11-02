@@ -8,7 +8,8 @@
   "scripts": {
     "start": "node backend/src/server.js",
     "dev": "node backend/src/server.js",
-    "test": "node --test backend/tests/analytics.test.js backend/tests/api.test.js backend/tests/calculation_verification.test.js",
+    "test": "node --test backend/tests/analytics.test.js backend/tests/api.test.js backend/tests/calculation_verification.test.js backend/tests/phase2_schema_and_analytics.test.js backend/tests/phase3_synthetic_and_features.test.js backend/tests/phase4_ml_integration.test.js backend/tests/phase5_frontend_integration.test.js backend/tests/phase6_copilot.test.js backend/tests/phase7_hardening.test.js",
+    "test:py": "python -m unittest tests/test_simulation_engine.py tests/test_ml_models.py",
     "migrate": "node-pg-migrate up -m migrations --migration-file-language sql",
     "migrate:create": "node-pg-migrate create -m migrations --migration-file-language sql",
     "seed": "node backend/db/seed.js"

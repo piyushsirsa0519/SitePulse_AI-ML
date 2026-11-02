@@ -7,13 +7,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&family=Sora:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Supabase JS Client CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
     <div id="app" class="app-layout">
@@ -64,58 +64,340 @@
             </div>
         </header>
 
+        <!-- Primary Enterprise Suite Navigation Tabs -->
+        <nav class="suite-subnav" aria-label="Suite Navigation">
+            <div class="subnav-container">
+                <div class="suite-tabs-group" role="tablist">
+                    <button class="suite-tab-btn active" id="tab-nav-dashboard" role="tab" aria-selected="true" aria-controls="view-dashboard" data-view="dashboard">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>Executive Portfolio</span>
+                        <span class="subnav-pill" id="portfolio-total-badge">3</span>
+                    </button>
+                    <button class="suite-tab-btn" id="tab-nav-project" role="tab" aria-selected="false" aria-controls="view-project" data-view="project">
+                        <i class="fa-solid fa-compass-drafting"></i>
+                        <span>Project Deep Dive</span>
+                        <span class="subnav-status-dot online"></span>
+                    </button>
+                    <button class="suite-tab-btn" id="tab-nav-analytics" role="tab" aria-selected="false" aria-controls="view-analytics" data-view="analytics">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Trade & Contractor Analytics</span>
+                    </button>
+                    <button class="suite-tab-btn" id="tab-nav-copilot" role="tab" aria-selected="false" aria-controls="view-copilot" data-view="copilot">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>AI Copilot</span>
+                        <span class="subnav-pill copilot-pill">Decision Support</span>
+                    </button>
+                </div>
+
+                <div class="subnav-actions">
+                    <div class="reference-date-picker-wrapper">
+                        <label for="reference-date-select" class="ref-date-label"><i class="fa-regular fa-calendar"></i> Reference Date:</label>
+                        <input type="date" id="reference-date-select" class="ref-date-input" value="2026-10-01">
+                    </div>
+                    <button id="refresh-data-btn" class="icon-btn refresh-btn" title="Refresh Live Data">
+                        <i class="fa-solid fa-rotate"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
         <!-- Main Body Content -->
         <main class="main-content" id="main-content">
-            <!-- Project Selection & Filter Bar -->
-            <section class="project-selector-bar">
-                <div class="selector-header">
-                    <div class="selector-title">
-                        <i class="fa-solid fa-layer-group"></i>
-                        <span>Active Retail Store Project</span>
-                    </div>
-                    
-                    <div class="selector-actions">
-                        <!-- Post Daily Update Button (Visible to Authorized Roles) -->
-                        <button id="open-daily-update-btn" class="action-btn-primary" style="display: none;">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                            <span>Post Daily Update</span>
-                        </button>
+            <!-- Global Notification / Toast Container -->
+            <div id="global-toast-container" class="toast-container" aria-live="polite"></div>
 
-                        <!-- Mobile Dropdown Fallback / Alternative -->
-                        <div class="dropdown-wrapper">
-                            <i class="fa-solid fa-store select-icon"></i>
-                            <select id="project-dropdown" class="project-select-input" aria-label="Select Retail Store Project">
-                                <!-- Populated dynamically -->
+            <!-- ================================================================= -->
+            <!-- VIEW 1: EXECUTIVE PORTFOLIO DASHBOARD                             -->
+            <!-- ================================================================= -->
+            <div id="view-dashboard" class="app-view active" role="tabpanel" aria-labelledby="tab-nav-dashboard">
+                <!-- Section Kicker Header (Inspired by reference case study) -->
+                <header class="view-intro-header">
+                    <div class="view-kicker-tag">
+                        <span class="kicker-num">01</span>
+                        <span class="kicker-divider">—</span>
+                        <span class="kicker-label">PORTFOLIO INTELLIGENCE</span>
+                    </div>
+                    <h2 class="view-hero-heading">Retail Store Rollout <em>&amp; Construction Trajectory</em></h2>
+                    <p class="view-hero-subtext">Real-time multi-site telemetry, schedule fulfillment, and predictive delay risk across active store fitouts.</p>
+                </header>
+
+                <!-- Executive Rollup KPI Bar (7 Key Metrics) -->
+                <section class="executive-kpi-bar" id="executive-kpi-bar">
+                    <!-- Populated dynamically: Active projects, on-track, at-risk, delayed, completion %, contractors, workforce -->
+                </section>
+
+                <!-- Portfolio Search & Status Filter Toolbar -->
+                <section class="portfolio-toolbar" id="portfolio-toolbar">
+                    <div class="toolbar-search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="portfolio-search-input" class="search-input" placeholder="Search projects by name, location, or store brand...">
+                        <button class="clear-search-btn" id="clear-search-btn" style="display: none;" title="Clear search"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+
+                    <div class="toolbar-filters">
+                        <div class="status-filter-pills" role="radiogroup" aria-label="Filter Projects by Status">
+                            <button class="status-pill-filter active" data-filter="all">All Projects</button>
+                            <button class="status-pill-filter" data-filter="on-track"><i class="fa-solid fa-circle-check"></i> On Track</button>
+                            <button class="status-pill-filter" data-filter="attention"><i class="fa-solid fa-circle-exclamation"></i> Attention</button>
+                            <button class="status-pill-filter" data-filter="behind"><i class="fa-solid fa-triangle-exclamation"></i> Delayed</button>
+                        </div>
+
+                        <div class="sort-dropdown-wrapper">
+                            <label for="portfolio-sort-select" class="sort-label"><i class="fa-solid fa-arrow-down-wide-short"></i> Sort:</label>
+                            <select id="portfolio-sort-select" class="sort-select">
+                                <option value="delay">Worst Delay First</option>
+                                <option value="completion-asc">Completion (Low to High)</option>
+                                <option value="completion-desc">Completion (High to Low)</option>
+                                <option value="name">Project Name (A-Z)</option>
                             </select>
                         </div>
                     </div>
+                </section>
+
+                <!-- Project Health Cards Grid -->
+                <section class="portfolio-cards-section">
+                    <div class="section-header-row">
+                        <div class="section-title-wrap">
+                            <i class="fa-solid fa-store"></i>
+                            <h3>Active Store Fitout Projects</h3>
+                        </div>
+                        <span class="section-count-badge" id="portfolio-visible-count">Showing 3 projects</span>
+                    </div>
+                    <div class="portfolio-cards-grid" id="portfolio-cards-grid">
+                        <!-- Populated dynamically with rich project cards -->
+                    </div>
+                </section>
+
+                <!-- Cross-Portfolio Analytics & Distribution Panels -->
+                <section class="portfolio-analytics-section" id="portfolio-analytics-panels">
+                    <!-- Populated dynamically: Planned vs Actual progress, workforce breakdown, delay causes -->
+                </section>
+
+                <!-- Global Executive Portfolio Summary List (Maintains Backward Compatibility & DOM Hook) -->
+                <section class="portfolio-section" id="portfolio-view-container">
+                    <!-- Dynamically rendered legacy/compact portfolio view -->
+                </section>
+            </div>
+
+            <!-- ================================================================= -->
+            <!-- VIEW 2: PROJECT DETAILS & DEEP DIVE                               -->
+            <!-- ================================================================= -->
+            <div id="view-project" class="app-view" style="display: none;" role="tabpanel" aria-labelledby="tab-nav-project">
+                <!-- Section Kicker Header -->
+                <header class="view-intro-header">
+                    <div class="view-kicker-tag">
+                        <span class="kicker-num">02</span>
+                        <span class="kicker-divider">—</span>
+                        <span class="kicker-label">SITE TELEMETRY</span>
+                    </div>
+                    <h2 class="view-hero-heading">Project Operations <em>&amp; Predictive Risk Deep Dive</em></h2>
+                    <p class="view-hero-subtext">Trade-by-trade milestones, on-site manpower attendance, Phase 4 ML delay projections, and active blocker logs.</p>
+                </header>
+
+                <!-- Project Selection & Filter Bar -->
+                <section class="project-selector-bar">
+                    <div class="selector-header">
+                        <div class="selector-title">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <span>Selected Retail Fitout Site</span>
+                        </div>
+                        
+                        <div class="selector-actions">
+                            <!-- Post Daily Update Button (Visible to Authorized Roles) -->
+                            <button id="open-daily-update-btn" class="action-btn-primary" style="display: none;">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                <span>Post Daily Update</span>
+                            </button>
+
+                            <!-- Mobile Dropdown Fallback / Alternative -->
+                            <div class="dropdown-wrapper">
+                                <i class="fa-solid fa-store select-icon"></i>
+                                <select id="project-dropdown" class="project-select-input" aria-label="Select Retail Store Project">
+                                    <!-- Populated dynamically -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desktop / Tablet Tab Selector Pills -->
+                    <div class="project-tabs-container" id="project-tabs">
+                        <!-- Tab buttons populated dynamically -->
+                    </div>
+                </section>
+
+                <!-- Selected Project Overview Card Section -->
+                <section class="overview-section" id="project-overview-container">
+                    <!-- Dynamically rendered project overview card -->
+                </section>
+
+                <!-- Phase 4 Applied ML Intelligent Project Insights Section -->
+                <section class="ml-insights-section" id="project-ml-insights-container">
+                    <!-- Dynamically rendered ML Delay Risk Score & Anomaly Detection Intelligence -->
+                </section>
+
+                <!-- Trades Breakdown Table Section -->
+                <section class="trades-section" id="trades-breakdown-container">
+                    <!-- Dynamically rendered trades breakdown table -->
+                </section>
+
+                <!-- Bottleneck Forecast & Action Recommendation Section -->
+                <section class="analysis-section" id="bottleneck-analysis-container">
+                    <!-- Dynamically rendered bottleneck projection and recommendation -->
+                </section>
+
+                <!-- Active Blockers & Delay Events Log Section -->
+                <section class="delay-events-section" id="project-delay-events-container">
+                    <!-- Dynamically rendered delay events from database/store -->
+                </section>
+            </div>
+
+            <!-- ================================================================= -->
+            <!-- VIEW 3: TRADE & CONTRACTOR ANALYTICS                              -->
+            <!-- ================================================================= -->
+            <div id="view-analytics" class="app-view" style="display: none;" role="tabpanel" aria-labelledby="tab-nav-analytics">
+                <!-- Section Kicker Header -->
+                <header class="view-intro-header">
+                    <div class="view-kicker-tag">
+                        <span class="kicker-num">03</span>
+                        <span class="kicker-divider">—</span>
+                        <span class="kicker-label">CONTRACTOR MATRIX</span>
+                    </div>
+                    <h2 class="view-hero-heading">Trade Fulfillment <em>&amp; Workforce Utilization</em></h2>
+                    <p class="view-hero-subtext">Cross-store performance benchmarking, manpower deficit analytics, and contractor allocation directory.</p>
+                </header>
+
+                <!-- Trade Performance Matrix Section -->
+                <section class="trade-matrix-section" id="trades-performance-matrix">
+                    <!-- Cross-project progress & fulfillment breakdown per trade -->
+                </section>
+
+                <!-- Manpower Shortfall & Attendance Analytics -->
+                <section class="manpower-analytics-section" id="manpower-analytics-container">
+                    <!-- Manpower utilization metrics & deficit analysis -->
+                </section>
+
+                <!-- Contractor Performance & Directory Section -->
+                <section class="contractors-section" id="contractors-directory-container">
+                    <!-- Directory of contractors with ratings and active site allocations -->
+                </section>
+            </div>
+
+            <!-- ================================================================= -->
+            <!-- VIEW 4: AI COPILOT & DECISION SUPPORT                             -->
+            <!-- ================================================================= -->
+            <div id="view-copilot" class="app-view" style="display: none;" role="tabpanel" aria-labelledby="tab-nav-copilot">
+                <div class="copilot-layout-container">
+                    <!-- Section Kicker Header -->
+                    <header class="view-intro-header copilot-intro-header">
+                        <div class="view-kicker-tag">
+                            <span class="kicker-num">04</span>
+                            <span class="kicker-divider">—</span>
+                            <span class="kicker-label">DECISION SUPPORT COPILOT</span>
+                        </div>
+                        <h2 class="view-hero-heading">Grounded AI <em>Advisory &amp; Synthesis</em></h2>
+                        <p class="view-hero-subtext">Context-aware reasoning over schedule variances, trade bottlenecks, and model-derived recovery strategies.</p>
+                    </header>
+
+                    <!-- Top Copilot Control & Governance Bar -->
+                    <div class="copilot-header-bar">
+                        <div class="copilot-scope-selector">
+                            <label for="copilot-project-select"><i class="fa-solid fa-crosshairs"></i> Telemetry Context Scope:</label>
+                            <select id="copilot-project-select" class="copilot-select">
+                                <option value="">🌐 Entire Active Portfolio (All Stores)</option>
+                                <!-- Populated dynamically with project options -->
+                            </select>
+                        </div>
+
+                        <div class="copilot-header-meta">
+                            <div class="copilot-status-badge" id="copilot-provider-badge">
+                                <span class="status-indicator online"></span>
+                                <span id="copilot-model-name">AI Copilot</span>
+                            </div>
+                            <button id="copilot-clear-chat-btn" class="icon-btn-text" title="Clear conversation history">
+                                <i class="fa-solid fa-trash-can"></i>
+                                <span>Clear Chat</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Setup / Unconfigured Guidance Alert (Hidden by default, shown if LLM unconfigured) -->
+                    <div id="copilot-unconfigured-alert" class="copilot-alert-banner" style="display: none;">
+                        <div class="alert-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="alert-content">
+                            <h4>AI Decision Support Provider Not Configured</h4>
+                            <p id="copilot-unconfigured-msg">Set <code>LLM_API_KEY</code> and <code>LLM_PROVIDER</code> in your backend environment to enable live LLM reasoning.</p>
+                            <div class="alert-setup-code">
+                                <code>LLM_PROVIDER=openai<br>LLM_API_KEY=sk-...<br>LLM_MODEL=gpt-4o-mini</code>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Suggested Prompt Chips -->
+                    <div class="copilot-suggestions-bar">
+                        <span class="suggestions-label"><i class="fa-regular fa-lightbulb"></i> Suggested Inquiries:</span>
+                        <div class="suggestion-chips-wrapper" id="copilot-suggestion-chips">
+                            <button class="copilot-chip" data-prompt="Which projects are currently at risk and why?">Which projects are at risk?</button>
+                            <button class="copilot-chip" data-prompt="Analyze workforce availability and shortfall across all sites">Workforce shortfall across sites</button>
+                            <button class="copilot-chip" data-prompt="Which trade is causing the primary bottleneck?">Primary trade bottlenecks</button>
+                            <button class="copilot-chip" data-prompt="Summarize active delay events and blocker descriptions">Active blocker log summary</button>
+                        </div>
+                    </div>
+
+                    <!-- Chat Conversation History Stream -->
+                    <div class="copilot-chat-stream" id="copilot-chat-stream">
+                        <!-- Welcome message bubble -->
+                        <div class="copilot-message copilot-message-assistant initial-welcome">
+                            <div class="copilot-avatar"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <div class="copilot-bubble">
+                                <div class="copilot-msg-header">
+                                    <span class="copilot-sender-name">SitePulse Copilot</span>
+                                    <span class="copilot-msg-time">Ground Truth Telemetry</span>
+                                </div>
+                                <div class="copilot-msg-body">
+                                    <p style="margin: 0 0 0.35rem 0;"><strong>SitePulse Decision Support:</strong> Grounded in live site telemetry, daily manpower attendance, and ML delay risk models.</p>
+                                    <div class="copilot-welcome-tags">
+                                        <span><i class="fa-solid fa-chart-pie"></i> Portfolio</span>
+                                        <span><i class="fa-solid fa-triangle-exclamation"></i> Bottlenecks</span>
+                                        <span><i class="fa-solid fa-users"></i> Manpower</span>
+                                        <span><i class="fa-solid fa-brain"></i> ML Risk</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Loading / Typing Indicator -->
+                    <div id="copilot-loading-indicator" class="copilot-typing-wrapper" style="display: none;">
+                        <div class="copilot-avatar"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                        <div class="copilot-typing-bubble">
+                            <span class="typing-dot"></span>
+                            <span class="typing-dot"></span>
+                            <span class="typing-dot"></span>
+                            <span class="typing-label">Analyzing project telemetry...</span>
+                        </div>
+                    </div>
+
+                    <!-- Chat Input Bar -->
+                    <div class="copilot-input-area">
+                        <form id="copilot-chat-form" class="copilot-input-form">
+                            <div class="copilot-input-wrapper">
+                                <textarea id="copilot-chat-input" class="copilot-textarea" placeholder="Ask about project health, trade bottlenecks, workforce, delay risks, or recovery advice..." rows="2" maxlength="1000"></textarea>
+                                <div class="copilot-input-actions">
+                                    <span id="copilot-char-count" class="char-counter">0 / 1000</span>
+                                    <button type="submit" id="copilot-send-btn" class="copilot-send-button" title="Send message">
+                                        <span>Send</span>
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="copilot-disclaimer-subtext">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>Advisory decision support. Predictions derived from synthetic simulation models. Verify on-site before contractual commitment.</span>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Desktop / Tablet Tab Selector Pills -->
-                <div class="project-tabs-container" id="project-tabs">
-                    <!-- Tab buttons populated dynamically -->
-                </div>
-            </section>
-
-            <!-- Selected Project Overview Card Section -->
-            <section class="overview-section" id="project-overview-container">
-                <!-- Dynamically rendered project overview card -->
-            </section>
-
-            <!-- Trades Breakdown Table Section -->
-            <section class="trades-section" id="trades-breakdown-container">
-                <!-- Dynamically rendered trades breakdown table -->
-            </section>
-
-            <!-- Bottleneck Forecast & Action Recommendation Section -->
-            <section class="analysis-section" id="bottleneck-analysis-container">
-                <!-- Dynamically rendered bottleneck projection and recommendation -->
-            </section>
-
-            <!-- Global Executive Portfolio View Section (Always Visible) -->
-            <section class="portfolio-section" id="portfolio-view-container">
-                <!-- Dynamically rendered portfolio view summary -->
-            </section>
+            </div>
         </main>
 
         <!-- App Footer Disclaimer Note -->
